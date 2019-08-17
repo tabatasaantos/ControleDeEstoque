@@ -12,6 +12,8 @@ using System.Windows.Forms;
 
 namespace UI
 {
+
+    // test
     public partial class frmConsultaCategoria : Form
     {
         public int codigo = 0;
