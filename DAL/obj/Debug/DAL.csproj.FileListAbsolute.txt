@@ -1,0 +1,9 @@
+C:\Users\Tabata\source\repos\ControleDeEstoque\DAL\bin\Debug\DAL.dll
+C:\Users\Tabata\source\repos\ControleDeEstoque\DAL\bin\Debug\DAL.pdb
+C:\Users\Tabata\source\repos\ControleDeEstoque\DAL\bin\Debug\Modelo.dll
+C:\Users\Tabata\source\repos\ControleDeEstoque\DAL\bin\Debug\Modelo.pdb
+C:\Users\Tabata\source\repos\ControleDeEstoque\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+C:\Users\Tabata\source\repos\ControleDeEstoque\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\Tabata\source\repos\ControleDeEstoque\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\Tabata\source\repos\ControleDeEstoque\DAL\obj\Debug\DAL.dll
+C:\Users\Tabata\source\repos\ControleDeEstoque\DAL\obj\Debug\DAL.pdb

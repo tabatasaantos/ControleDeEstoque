@@ -1,0 +1,6 @@
+C:\Users\Tabata\source\repos\ControleDeEstoque\Modelo\bin\Debug\Modelo.dll
+C:\Users\Tabata\source\repos\ControleDeEstoque\Modelo\bin\Debug\Modelo.pdb
+C:\Users\Tabata\source\repos\ControleDeEstoque\Modelo\obj\Debug\Modelo.csprojAssemblyReference.cache
+C:\Users\Tabata\source\repos\ControleDeEstoque\Modelo\obj\Debug\Modelo.csproj.CoreCompileInputs.cache
+C:\Users\Tabata\source\repos\ControleDeEstoque\Modelo\obj\Debug\Modelo.dll
+C:\Users\Tabata\source\repos\ControleDeEstoque\Modelo\obj\Debug\Modelo.pdb
