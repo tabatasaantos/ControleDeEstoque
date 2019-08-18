@@ -9,3 +9,14 @@ C:\Users\Tabata\source\repos\ControleDeEstoque\BLL\obj\Debug\BLL.csproj.CoreComp
 C:\Users\Tabata\source\repos\ControleDeEstoque\BLL\obj\Debug\BLL.csproj.CopyComplete
 C:\Users\Tabata\source\repos\ControleDeEstoque\BLL\obj\Debug\BLL.dll
 C:\Users\Tabata\source\repos\ControleDeEstoque\BLL\obj\Debug\BLL.pdb
+C:\gitRepository\ControleDeEstoque\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+C:\gitRepository\ControleDeEstoque\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+C:\gitRepository\ControleDeEstoque\BLL\obj\Debug\BLL.dll
+C:\gitRepository\ControleDeEstoque\BLL\obj\Debug\BLL.pdb
+C:\gitRepository\ControleDeEstoque\BLL\bin\Debug\BLL.dll
+C:\gitRepository\ControleDeEstoque\BLL\bin\Debug\BLL.pdb
+C:\gitRepository\ControleDeEstoque\BLL\bin\Debug\DAL.dll
+C:\gitRepository\ControleDeEstoque\BLL\bin\Debug\Modelo.dll
+C:\gitRepository\ControleDeEstoque\BLL\bin\Debug\DAL.pdb
+C:\gitRepository\ControleDeEstoque\BLL\bin\Debug\Modelo.pdb
+C:\gitRepository\ControleDeEstoque\BLL\obj\Debug\BLL.csproj.CopyComplete

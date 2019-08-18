@@ -4,3 +4,9 @@ C:\Users\Tabata\source\repos\ControleDeEstoque\Modelo\obj\Debug\Modelo.csprojAss
 C:\Users\Tabata\source\repos\ControleDeEstoque\Modelo\obj\Debug\Modelo.csproj.CoreCompileInputs.cache
 C:\Users\Tabata\source\repos\ControleDeEstoque\Modelo\obj\Debug\Modelo.dll
 C:\Users\Tabata\source\repos\ControleDeEstoque\Modelo\obj\Debug\Modelo.pdb
+C:\gitRepository\ControleDeEstoque\Modelo\bin\Debug\Modelo.dll
+C:\gitRepository\ControleDeEstoque\Modelo\bin\Debug\Modelo.pdb
+C:\gitRepository\ControleDeEstoque\Modelo\obj\Debug\Modelo.csprojAssemblyReference.cache
+C:\gitRepository\ControleDeEstoque\Modelo\obj\Debug\Modelo.csproj.CoreCompileInputs.cache
+C:\gitRepository\ControleDeEstoque\Modelo\obj\Debug\Modelo.dll
+C:\gitRepository\ControleDeEstoque\Modelo\obj\Debug\Modelo.pdb

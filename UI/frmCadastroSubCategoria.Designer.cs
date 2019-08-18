@@ -47,6 +47,10 @@
             this.pnDados.Controls.Add(this.lblNomeSubCat);
             this.pnDados.Controls.Add(this.lblCodigo);
             // 
+            // btnInserir
+            // 
+            this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);
+            // 
             // lblCodigo
             // 
             this.lblCodigo.AutoSize = true;

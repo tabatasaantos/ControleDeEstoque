@@ -20,7 +20,7 @@ namespace BLL
 
         public void Incluir(ModeloCategoria modelo)
         {
-            if (modelo.CatNome.Trim().Length == 0)
+            if (modelo.CatNome.Trim().Length == 0) 
             {
                 throw new Exception("O nome da categoria é obrigatório!");
             }
