@@ -47,6 +47,26 @@
             this.pnDados.Controls.Add(this.lblNomeSubCat);
             this.pnDados.Controls.Add(this.lblCodigo);
             // 
+            // btnCalcelar
+            // 
+            this.btnCalcelar.Click += new System.EventHandler(this.btnCalcelar_Click);
+            // 
+            // btnSalvar
+            // 
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            // 
+            // btnAlterar
+            // 
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
+            // 
+            // btnLocalizar
+            // 
+            this.btnLocalizar.Click += new System.EventHandler(this.btnLocalizar_Click);
+            // 
             // btnInserir
             // 
             this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);

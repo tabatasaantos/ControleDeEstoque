@@ -28,7 +28,7 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@CATCOD", modelo.CatCod);
                 cmd.Parameters.AddWithValue("@NOME", modelo.SCatNome);
                 conexao.Conectar();
-                modelo.CatCod = Convert.ToInt32(cmd.ExecuteScalar());
+                modelo.ScatCod = Convert.ToInt32(cmd.ExecuteScalar());
             }
             catch (Exception ex)
             {
@@ -72,7 +72,7 @@ namespace DAL
             {
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conexao.ObjetoConexao;
-                cmd.CommandText = "DELETE FROM SUBCATEGORIA WHERE SCAT_COD = @CODIGO";
+                cmd.CommandText = "DELETE FROM SUBCATEGORIA WHERE SCAT_COD = @CODIGO;";
                 cmd.Parameters.AddWithValue("@CODIGO", codigo);
                 conexao.Conectar();
                 cmd.ExecuteNonQuery();
@@ -92,7 +92,8 @@ namespace DAL
         public DataTable Localizar(string valor)
         {
             DataTable tabela = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM SUBCATEGORIA WHERE SCAT_NOME LIKE '%" + valor + "%'", conexao.StringConexao);
+            SqlDataAdapter da = new SqlDataAdapter("SELECT SC.SCAT_COD, SC.SCAT_NOME, SC.CAT_COD, C.CAT_NOME "+
+            " FROM SUBCATEGORIA SC INNER JOIN CATEGORIA C ON SC.CAT_COD = C.CAT_COD WHERE SCAT_NOME LIKE '%" + valor + "%'", conexao.StringConexao);
             da.Fill(tabela);
             return tabela;
         }
@@ -102,7 +103,7 @@ namespace DAL
             ModeloSubCategoria modelo = new ModeloSubCategoria();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
-            cmd.CommandText = "SELECT * FROM SUBCATEGORIA WHERE SCAT_COD = @CODIGO";
+            cmd.CommandText = "SELECT * FROM SUBCATEGORIA WHERE SCAT_COD = @CODIGO;";
             cmd.Parameters.AddWithValue("@CODIGO", codigo);
             conexao.Conectar();
             SqlDataReader registro = cmd.ExecuteReader();

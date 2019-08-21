@@ -39,3 +39,4 @@ C:\gitRepository\ControleDeEstoque\UI\obj\Debug\UI.csproj.CoreCompileInputs.cach
 C:\gitRepository\ControleDeEstoque\UI\obj\Debug\UI.csproj.CopyComplete
 C:\gitRepository\ControleDeEstoque\UI\obj\Debug\UI.exe
 C:\gitRepository\ControleDeEstoque\UI\obj\Debug\UI.pdb
+C:\gitRepository\ControleDeEstoque\UI\obj\Debug\UI.frmConsultaSubCategoria.resources

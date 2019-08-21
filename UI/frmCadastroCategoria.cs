@@ -98,14 +98,12 @@ namespace UI
                     this.LimpaTela();
                     this.AlteraBotoes(1);
                 }
-
             }
             catch 
             {
                 MessageBox.Show("Impossível excluir esse registro. \nO registro está sendo utilizado em outro local.");
                 this.AlteraBotoes(3);
             }
-
         }
 
         private void btnLocalizar_Click(object sender, EventArgs e)

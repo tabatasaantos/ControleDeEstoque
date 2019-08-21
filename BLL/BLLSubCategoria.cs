@@ -68,7 +68,7 @@ namespace BLL
             return Dalobj.Localizar(valor);
         }
 
-        public ModeloSubCategoria CarregaModeloCategoria(int codigo)
+        public ModeloSubCategoria CarregaModeloSubCategoria(int codigo)
         {
             DALSubCategoria Dalobj = new DALSubCategoria(conexao);
             return Dalobj.CarregaModeloSubCategoria(codigo);
