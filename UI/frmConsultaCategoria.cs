@@ -26,6 +26,9 @@ namespace UI
         {
             DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
             BLLCategoria bll = new BLLCategoria(cx);
+            //chamado1: usuário reclamou que não estava filtrando conforme ele digitava na campo da busca. 
+            //corrigi o nome do parâmetro passado ao bll.Localizar que antes estava sendo passado uma string vazia e não pegando
+            //o valor digitado pelo usuário.
             dgvDados.DataSource = bll.Localizar(txtValor.Text);
         }
 

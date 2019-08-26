@@ -72,7 +72,9 @@ namespace UI
                 }
                 else
                 {
-                    //alterar categoria
+                    //alterar subcategoria
+                    //chamado2: usuário reclamou que o cadastro não estava sendo alterado
+                    // o erro estava sendo causado, pois, estava passando o nome da categoria e não o codigo para converter para int
                     modelo.ScatCod = Convert.ToInt32(txtCodigoSubCat.Text);
                     bll.Alterar(modelo);
                     MessageBox.Show("Cadastro alterado com sucesso!");

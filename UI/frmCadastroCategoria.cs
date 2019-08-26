@@ -89,7 +89,8 @@ namespace UI
             try
             {
                 DialogResult d = MessageBox.Show("Deseja excluir o registro?", "Aviso", MessageBoxButtons.YesNo);
-
+                //chamado 3: usuário reclamou que não estava excluindo o cadastro, o erro ocorreu porque no if de validação da exlusão estava 
+                //"SIM" e não "YES" e a palavra em português não era reconhecida.
                 if (d.ToString() == "Yes")
                 {
                     DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
