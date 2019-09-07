@@ -99,6 +99,7 @@
             this.txtUmed.Name = "txtUmed";
             this.txtUmed.Size = new System.Drawing.Size(593, 20);
             this.txtUmed.TabIndex = 3;
+            this.txtUmed.Leave += new System.EventHandler(this.txtUmed_Leave);
             // 
             // frmCadastroUnidadeDeMedida
             // 

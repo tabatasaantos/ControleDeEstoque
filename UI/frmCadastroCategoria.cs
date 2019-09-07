@@ -24,15 +24,15 @@ namespace UI
             txtNome.Clear();
         }
 
-        private void frmCadastroCategoria_Load(object sender, EventArgs e)
-        {
-            this.AlteraBotoes(1);
-        }
-
         private void btnInserir_Click(object sender, EventArgs e)
         {
             this.operacao = "Inserir";
             this.AlteraBotoes(2);
+        }
+
+        private void frmCadastroCategoria_Load(object sender, EventArgs e)
+        {
+            this.AlteraBotoes(1);
         }
 
         private void btnCalcelar_Click(object sender, EventArgs e)
@@ -128,5 +128,6 @@ namespace UI
 
             f.Dispose();
         }
+
     }
 }

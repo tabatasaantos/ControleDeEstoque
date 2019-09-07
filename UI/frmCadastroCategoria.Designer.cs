@@ -63,6 +63,10 @@
             // 
             this.btnLocalizar.Click += new System.EventHandler(this.btnLocalizar_Click);
             // 
+            // btnInserir
+            // 
+            this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);
+            // 
             // lblCodigo
             // 
             this.lblCodigo.AutoSize = true;

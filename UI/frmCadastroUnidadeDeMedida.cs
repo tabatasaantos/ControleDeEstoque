@@ -147,5 +147,28 @@ namespace UI
 
             f.Dispose();
         }
+
+        private void txtUmed_Leave(object sender, EventArgs e)
+        {
+            if(this.operacao == "Inserir")
+            {
+                int r = 0;
+                DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+                BLLUnidadeDeMedida bll = new BLLUnidadeDeMedida(cx);
+                r = bll.VerificaUnidadeDeMedida(txtUmed.Text);
+
+                if(r > 0)
+                {
+                    DialogResult d = MessageBox.Show("Já existe um registro com esse valor. Deseja alterar o registro?", "Aviso", MessageBoxButtons.YesNo);
+                    if (d.ToString() == "Yes")
+                    {
+                        this.operacao = "Alterar";
+                        ModeloUnidadeDeMedida modelo = bll.CarregaModeloUnidadeDeMedida(r);
+                        txtCodUmed.Text = modelo.UmedCod.ToString();
+                        txtUmed.Text = modelo.UmedNome;
+                    }
+                }           
+            }
+        }
     }
 }

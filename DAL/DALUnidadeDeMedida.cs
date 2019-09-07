@@ -37,7 +37,6 @@ namespace DAL
             {
                 conexao.Desconectar();
             }
-
         }
 
         public void Alterar(ModeloUnidadeDeMedida modelo)
@@ -87,12 +86,32 @@ namespace DAL
             }
         }
 
-        public DataTable Localizar(string valor)
+        public DataTable Localizar(string valor) 
         {
             DataTable tabela = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM UNDMEDIDA WHERE UMED_NOME LIKE '%" + valor + "%'", conexao.StringConexao);
             da.Fill(tabela);
             return tabela;
+        }
+
+        public int VerificaUnidadeDeMedida(string valor) //0 - não existe valor no BD / numero > 0 existe
+        {
+            int r = 0; // 0 - não existe
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            cmd.CommandText = "SELECT * FROM UNDMEDIDA WHERE UMED_NOME = @NOME;";
+            cmd.Parameters.AddWithValue("@nome", valor);
+            conexao.Conectar();
+            SqlDataReader registro = cmd.ExecuteReader();
+
+            if (registro.HasRows)
+            {
+                registro.Read();
+                r = Convert.ToInt32(registro["UMED_COD"]);
+            }
+
+            conexao.Desconectar();
+            return r;
         }
 
         public ModeloUnidadeDeMedida CarregaModeloUnidadeDeMedida(int codigo)
