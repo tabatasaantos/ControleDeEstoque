@@ -73,9 +73,7 @@ namespace UI
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
-
-           
+            }          
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
@@ -112,7 +110,7 @@ namespace UI
             frmConsultaCategoria f = new frmConsultaCategoria();
             f.ShowDialog();
 
-            if(f.codigo != 0)
+            if (f.codigo != 0)
             {
                 DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
                 BLLCategoria bll = new BLLCategoria(cx);

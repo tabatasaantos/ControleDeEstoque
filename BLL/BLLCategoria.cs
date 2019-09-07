@@ -58,7 +58,7 @@ namespace BLL
         }
 
         public DataTable Localizar(string valor)
-        {
+        { //teste
             DALCategoria Dalobj = new DALCategoria(conexao);
             return Dalobj.Localizar(valor);
         }

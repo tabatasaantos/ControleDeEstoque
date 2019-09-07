@@ -61,12 +61,19 @@ namespace BLL
             DALSubCategoria Dalobj = new DALSubCategoria(conexao);
             Dalobj.Excluir(codigo);
         }
-
         public DataTable Localizar(string valor)
         {
             DALSubCategoria Dalobj = new DALSubCategoria(conexao);
             return Dalobj.Localizar(valor);
         }
+        
+        //erro 7: o códico como mostra abaixo estava definido como void, mas temos uma tabela de dados na memória que é o DataTable
+        //que deve ser o tipo do método e não void que não deixa retornar nada.
+        //public void Localizar(string valor)
+        //{
+        //    DALSubCategoria Dalobj = new DALSubCategoria(conexao);
+        //    return Dalobj.Localizar(valor);
+        //}
 
         public ModeloSubCategoria CarregaModeloSubCategoria(int codigo)
         {

@@ -47,6 +47,8 @@ namespace DAL
             {
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conexao.ObjetoConexao;
+                //erro 2: erro ao alterar uma subcategoria. Erro ocorreu porque o comabdo SQL estava com o AND no lugar da ,.
+                //cmd.CommandText = "UPDATE SUBCATEGORIA SET SCAT_NOME = @NOME AND CAT_COD = @CATCOD WHERE SCAT_COD = @SCATCOD;";
                 cmd.CommandText = "UPDATE SUBCATEGORIA SET SCAT_NOME = @NOME, CAT_COD = @CATCOD WHERE SCAT_COD = @SCATCOD;";
                 cmd.Parameters.AddWithValue("@NOME", modelo.SCatNome);
                 cmd.Parameters.AddWithValue("@CATCOD", modelo.CatCod);
@@ -91,11 +93,14 @@ namespace DAL
 
         public DataTable Localizar(string valor)
         {
-            DataTable tabela = new DataTable();
+            DataTable tabela = new DataTable(); //instanciando o datatable com o nome tabela.
             SqlDataAdapter da = new SqlDataAdapter("SELECT SC.SCAT_COD, SC.SCAT_NOME, SC.CAT_COD, C.CAT_NOME "+
             " FROM SUBCATEGORIA SC INNER JOIN CATEGORIA C ON SC.CAT_COD = C.CAT_COD WHERE SCAT_NOME LIKE '%" + valor + "%'", conexao.StringConexao);
-            da.Fill(tabela);
-            return tabela;
+            da.Fill(tabela); //erro 7: estava acontecendo por estar faltando a essa linha. A variavel não estava recebendo um valor e por isso
+            // retornava um valor nulo.
+            // passando o "da" que é o que contém o comando SQL conforme passado acima, precisamos atribuir o que o comando trás
+            // com o FILL para a variável criada na datatable para ela não fica vazia.
+            return tabela; //retornando o resultado do comando SQL
         }
 
         public ModeloSubCategoria CarregaModeloSubCategoria(int codigo)

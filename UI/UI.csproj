@@ -58,6 +58,12 @@
     <Compile Include="frmCadastroSubCategoria.Designer.cs">
       <DependentUpon>frmCadastroSubCategoria.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCadastroUnidadeDeMedida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCadastroUnidadeDeMedida.Designer.cs">
+      <DependentUpon>frmCadastroUnidadeDeMedida.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmConsultaCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +75,12 @@
     </Compile>
     <Compile Include="frmConsultaSubCategoria.Designer.cs">
       <DependentUpon>frmConsultaSubCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmConsultaUnidadeDeMedida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsultaUnidadeDeMedida.Designer.cs">
+      <DependentUpon>frmConsultaUnidadeDeMedida.cs</DependentUpon>
     </Compile>
     <Compile Include="frmModeloDeFormularioDeCadastro.cs">
       <SubType>Form</SubType>
@@ -87,11 +99,17 @@
     <EmbeddedResource Include="frmCadastroSubCategoria.resx">
       <DependentUpon>frmCadastroSubCategoria.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCadastroUnidadeDeMedida.resx">
+      <DependentUpon>frmCadastroUnidadeDeMedida.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmConsultaCategoria.resx">
       <DependentUpon>frmConsultaCategoria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmConsultaSubCategoria.resx">
       <DependentUpon>frmConsultaSubCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConsultaUnidadeDeMedida.resx">
+      <DependentUpon>frmConsultaUnidadeDeMedida.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmModeloDeFormularioDeCadastro.resx">
       <DependentUpon>frmModeloDeFormularioDeCadastro.cs</DependentUpon>

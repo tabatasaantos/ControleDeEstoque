@@ -27,6 +27,11 @@ namespace DAL
             conexao.Conectar();
             modelo.CatCod = Convert.ToInt32(cmd.ExecuteScalar());
             conexao.Desconectar();
+
+            //erro 4: como mostra na coluna abaixo, está sendo passado o parâmetro para o código, e como ele está definido
+            //como identity, ele auto se incrementa, se passarmos um valor "x" ele não aceita e não consegue registrar um novo cadastro.
+            //cmd.CommandText = "INSERT CATEGORIA(CAT_COD, CAT_NOME) VALUES (@CAT_COD, @NOME); SELECT @@IDENTITY;";
+            //cmd.Parameters.AddWithValue("@CAT_COD", modelo.CatCod);
         }
 
         public void Alterar(ModeloCategoria modelo)
@@ -54,7 +59,7 @@ namespace DAL
 
         public DataTable Localizar(string valor)
         {
-            DataTable tabela = new DataTable();
+            DataTable tabela = new DataTable(); //comentar
             SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM CATEGORIA WHERE CAT_NOME LIKE '%" + valor + "%'", conexao.StringConexao);
             da.Fill(tabela);
             return tabela;

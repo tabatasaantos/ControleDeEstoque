@@ -40,3 +40,5 @@ C:\gitRepository\ControleDeEstoque\UI\obj\Debug\UI.csproj.CopyComplete
 C:\gitRepository\ControleDeEstoque\UI\obj\Debug\UI.exe
 C:\gitRepository\ControleDeEstoque\UI\obj\Debug\UI.pdb
 C:\gitRepository\ControleDeEstoque\UI\obj\Debug\UI.frmConsultaSubCategoria.resources
+C:\gitRepository\ControleDeEstoque\UI\obj\Debug\UI.frmCadastroUnidadeDeMedida.resources
+C:\gitRepository\ControleDeEstoque\UI\obj\Debug\UI.frmConsultaUnidadeDeMedida.resources
