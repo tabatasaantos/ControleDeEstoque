@@ -22,13 +22,13 @@ namespace Modelo
             this.ScatCod = 0;
         }
 
-        public ModeloProduto(int pro_cod, string pro_nome, string pro_descricao, string pro_foto, double pro_valorpago, double pro_valorvenda,
+        public ModeloProduto(int pro_cod, string pro_nome, string pro_descricao, byte pro_foto, double pro_valorpago, double pro_valorvenda,
                              float pro_qtde, int umed_cod, int cat_cod, int scat_cod)
         {
             this.ProCod = pro_cod;
             this.ProNome = pro_nome;
             this.ProDescricao = pro_descricao;
-           // this.pro_foto = pro_foto;
+            //this.pro_foto = pro_foto;
             this.ProValorPago = pro_valorpago;
             this.ProValorVenda = pro_valorvenda;
             this.ProQtde = pro_qtde;
@@ -82,9 +82,9 @@ namespace Modelo
             }
         }
 
-        private string _pro_foto;
+        private byte[] _pro_foto;
 
-        public string ProFoto
+        public byte[] ProFoto
         {
             get
             {
