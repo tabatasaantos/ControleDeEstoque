@@ -172,6 +172,8 @@
             this.txtQtdeProduto.Name = "txtQtdeProduto";
             this.txtQtdeProduto.Size = new System.Drawing.Size(134, 20);
             this.txtQtdeProduto.TabIndex = 9;
+            this.txtQtdeProduto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQtdeProduto_KeyPress);
+            this.txtQtdeProduto.Leave += new System.EventHandler(this.txtQtdeProduto_Leave);
             // 
             // txtValorPago
             // 
@@ -179,6 +181,8 @@
             this.txtValorPago.Name = "txtValorPago";
             this.txtValorPago.Size = new System.Drawing.Size(134, 20);
             this.txtValorPago.TabIndex = 10;
+            this.txtValorPago.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValorPago_KeyPress);
+            this.txtValorPago.Leave += new System.EventHandler(this.txtValorPago_Leave);
             // 
             // txtValorVenda
             // 
@@ -186,6 +190,8 @@
             this.txtValorVenda.Name = "txtValorVenda";
             this.txtValorVenda.Size = new System.Drawing.Size(143, 20);
             this.txtValorVenda.TabIndex = 11;
+            this.txtValorVenda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValorVenda_KeyPress);
+            this.txtValorVenda.Leave += new System.EventHandler(this.txtValorVenda_Leave);
             // 
             // lblUniMedida
             // 

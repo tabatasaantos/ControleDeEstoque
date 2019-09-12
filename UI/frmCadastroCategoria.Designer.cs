@@ -112,6 +112,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Categoria";
             this.Load += new System.EventHandler(this.frmCadastroCategoria_Load);
+           
             this.pnDados.ResumeLayout(false);
             this.pnDados.PerformLayout();
             this.pnButton.ResumeLayout(false);
