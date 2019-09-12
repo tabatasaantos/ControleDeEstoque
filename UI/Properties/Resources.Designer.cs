@@ -63,6 +63,26 @@ namespace UI.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Excluir {
+            get {
+                object obj = ResourceManager.GetObject("Excluir", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap folderimage_9658 {
+            get {
+                object obj = ResourceManager.GetObject("folderimage_9658", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap localizar_fw {
             get {
                 object obj = ResourceManager.GetObject("localizar.fw", resourceCulture);
@@ -76,6 +96,16 @@ namespace UI.Properties {
         internal static System.Drawing.Bitmap localizar1 {
             get {
                 object obj = ResourceManager.GetObject("localizar1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap remove {
+            get {
+                object obj = ResourceManager.GetObject("remove", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

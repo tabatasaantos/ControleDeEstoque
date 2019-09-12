@@ -52,6 +52,12 @@
     <Compile Include="frmCadastroCategoria.Designer.cs">
       <DependentUpon>frmCadastroCategoria.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCadastroProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCadastroProduto.Designer.cs">
+      <DependentUpon>frmCadastroProduto.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCadastroSubCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +102,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmCadastroProduto.resx">
+      <DependentUpon>frmCadastroProduto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCadastroSubCategoria.resx">
       <DependentUpon>frmCadastroSubCategoria.cs</DependentUpon>
     </EmbeddedResource>
@@ -162,6 +171,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\localizar.fw1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folderimage_9658.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Excluir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
