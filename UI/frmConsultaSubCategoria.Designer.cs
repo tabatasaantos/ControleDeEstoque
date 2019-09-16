@@ -44,7 +44,7 @@
             this.dgvDados.Name = "dgvDados";
             this.dgvDados.ReadOnly = true;
             this.dgvDados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDados.Size = new System.Drawing.Size(541, 316);
+            this.dgvDados.Size = new System.Drawing.Size(597, 316);
             this.dgvDados.TabIndex = 7;
             this.dgvDados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDados_CellDoubleClick);
             // 

@@ -31,11 +31,11 @@ namespace DAL
 
             if (obj.ProFoto == null)
             {
-                cmd.Parameters["foto"].Value = DBNull.Value;
+                cmd.Parameters["@FOTO"].Value = DBNull.Value;
             }
             else
             {
-                cmd.Parameters["foto"].Value = obj.ProFoto;
+                cmd.Parameters["@FOTO"].Value = obj.ProFoto;
             }
 
             cmd.Parameters.AddWithValue("@VALORPAGO", obj.ProValorPago);
@@ -74,11 +74,11 @@ namespace DAL
 
             if (obj.ProFoto == null)
             {
-                cmd.Parameters["foto"].Value = DBNull.Value;
+                cmd.Parameters["@FOTO"].Value = DBNull.Value;
             }
             else
             {
-                cmd.Parameters["foto"].Value = obj.ProFoto;
+                cmd.Parameters["@FOTO"].Value = obj.ProFoto;
             }
 
             cmd.Parameters.AddWithValue("@VALORPAGO", obj.ProValorPago);

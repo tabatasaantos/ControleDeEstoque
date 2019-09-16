@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ namespace Modelo
             this.ProCod = 0;
             this.ProNome = "";
             this.ProDescricao = "";
-            //this.ProFoto = "";
+            //foto null;
             this.ProValorPago = 0;
             this.ProValorVenda = 0;
             this.ProQtde = 0;
@@ -22,13 +23,27 @@ namespace Modelo
             this.ScatCod = 0;
         }
 
-        public ModeloProduto(int pro_cod, string pro_nome, string pro_descricao, byte pro_foto, double pro_valorpago, double pro_valorvenda,
-                             float pro_qtde, int umed_cod, int cat_cod, int scat_cod)
+        public ModeloProduto(int pro_cod, string pro_nome, string pro_descricao, string pro_foto, double pro_valorpago, double pro_valorvenda,
+                             double pro_qtde, int umed_cod, int cat_cod, int scat_cod)
         {
             this.ProCod = pro_cod;
             this.ProNome = pro_nome;
             this.ProDescricao = pro_descricao;
-            //this.pro_foto = pro_foto;
+            this.CarregaImagem(pro_foto);
+            this.ProValorPago = pro_valorpago;
+            this.ProValorVenda = pro_valorvenda;
+            this.ProQtde = pro_qtde;
+            this.UmedCod = umed_cod;
+            this.CatCod = cat_cod;
+            this.ScatCod = scat_cod;
+        }
+        public ModeloProduto(int pro_cod, string pro_nome, string pro_descricao, byte[] pro_foto, double pro_valorpago, double pro_valorvenda,
+                             double pro_qtde, int umed_cod, int cat_cod, int scat_cod)
+        {
+            this.ProCod = pro_cod;
+            this.ProNome = pro_nome;
+            this.ProDescricao = pro_descricao;
+            this.ProFoto = pro_foto;
             this.ProValorPago = pro_valorpago;
             this.ProValorVenda = pro_valorvenda;
             this.ProQtde = pro_qtde;
@@ -97,6 +112,30 @@ namespace Modelo
             }
         }
 
+        public void CarregaImagem(string imgCaminho)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(imgCaminho))
+                    return;
+                //fornece propriedades métodos de instância para criar, copiar, excluir, mover e abrir arquivos e ajuda na criação
+                //de objetos FileStream.
+                FileInfo arqImagem = new FileInfo(imgCaminho);
+                //Espôe um Streams ao redor de um arquivo de suporte
+                //síncrono e assíncrono operações de leitura e gravar.
+                FileStream fs = new FileStream(imgCaminho, FileMode.Open, FileAccess.Read, FileShare.Read);
+                //aloca memória para o valor
+                this.ProFoto = new byte[Convert.ToInt32(arqImagem.Length)];
+                //lê um bloco de bytes do fluxo e grava os dados em um buffer fornecido.
+                int iByteRead = fs.Read(this.ProFoto, 0, Convert.ToInt32(arqImagem.Length));
+            }
+
+            catch
+            {
+
+            }
+        }
+
         private double _pro_valorpago;
 
         public double ProValorPago
@@ -127,9 +166,9 @@ namespace Modelo
             }
         }
 
-        private float _pro_qtde;
+        private double _pro_qtde;
 
-        public float ProQtde
+        public double ProQtde
         {
             get
             {

@@ -43,3 +43,4 @@ C:\gitRepository\ControleDeEstoque\UI\obj\Debug\UI.frmConsultaSubCategoria.resou
 C:\gitRepository\ControleDeEstoque\UI\obj\Debug\UI.frmCadastroUnidadeDeMedida.resources
 C:\gitRepository\ControleDeEstoque\UI\obj\Debug\UI.frmConsultaUnidadeDeMedida.resources
 C:\gitRepository\ControleDeEstoque\UI\obj\Debug\UI.frmCadastroProduto.resources
+C:\gitRepository\ControleDeEstoque\UI\obj\Debug\UI.frmConsultaProduto.resources

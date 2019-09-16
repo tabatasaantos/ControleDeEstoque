@@ -48,16 +48,16 @@
             this.cmbCategoria = new System.Windows.Forms.ComboBox();
             this.cmbSubCategoria = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbFoto = new System.Windows.Forms.PictureBox();
             this.lblFoto = new System.Windows.Forms.Label();
             this.btnCarregar = new System.Windows.Forms.Button();
             this.btnRemover = new System.Windows.Forms.Button();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTipCarrega = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTipRemove = new System.Windows.Forms.ToolTip(this.components);
             this.pnDados.SuspendLayout();
             this.pnButton.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
             this.SuspendLayout();
             // 
             // pnDados
@@ -85,6 +85,26 @@
             this.pnDados.Controls.Add(this.lblNomeProduto);
             this.pnDados.Controls.Add(this.lblCodProduto);
             this.pnDados.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            // 
+            // btnCalcelar
+            // 
+            this.btnCalcelar.Click += new System.EventHandler(this.btnCalcelar_Click);
+            // 
+            // btnSalvar
+            // 
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            // 
+            // btnAlterar
+            // 
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
+            // 
+            // btnLocalizar
+            // 
+            this.btnLocalizar.Click += new System.EventHandler(this.btnLocalizar_Click);
             // 
             // btnInserir
             // 
@@ -171,7 +191,7 @@
             this.txtQtdeProduto.Location = new System.Drawing.Point(24, 216);
             this.txtQtdeProduto.Name = "txtQtdeProduto";
             this.txtQtdeProduto.Size = new System.Drawing.Size(134, 20);
-            this.txtQtdeProduto.TabIndex = 9;
+            this.txtQtdeProduto.TabIndex = 12;
             this.txtQtdeProduto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQtdeProduto_KeyPress);
             this.txtQtdeProduto.Leave += new System.EventHandler(this.txtQtdeProduto_Leave);
             // 
@@ -226,7 +246,7 @@
             this.cmbUnMedida.Location = new System.Drawing.Point(220, 216);
             this.cmbUnMedida.Name = "cmbUnMedida";
             this.cmbUnMedida.Size = new System.Drawing.Size(143, 21);
-            this.cmbUnMedida.TabIndex = 15;
+            this.cmbUnMedida.TabIndex = 13;
             // 
             // cmbCategoria
             // 
@@ -235,6 +255,7 @@
             this.cmbCategoria.Name = "cmbCategoria";
             this.cmbCategoria.Size = new System.Drawing.Size(137, 21);
             this.cmbCategoria.TabIndex = 16;
+            this.cmbCategoria.SelectedIndexChanged += new System.EventHandler(this.cmbCategoria_SelectedIndexChanged);
             // 
             // cmbSubCategoria
             // 
@@ -247,21 +268,21 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.pbFoto);
             this.panel1.Location = new System.Drawing.Point(406, 27);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(198, 173);
             this.panel1.TabIndex = 18;
             // 
-            // pictureBox1
+            // pbFoto
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(196, 171);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.pbFoto.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbFoto.Location = new System.Drawing.Point(0, 0);
+            this.pbFoto.Name = "pbFoto";
+            this.pbFoto.Size = new System.Drawing.Size(196, 171);
+            this.pbFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbFoto.TabIndex = 0;
+            this.pbFoto.TabStop = false;
             // 
             // lblFoto
             // 
@@ -280,6 +301,7 @@
             this.btnCarregar.Size = new System.Drawing.Size(95, 60);
             this.btnCarregar.TabIndex = 20;
             this.btnCarregar.UseVisualStyleBackColor = true;
+            this.btnCarregar.Click += new System.EventHandler(this.btnCarregar_Click);
             // 
             // btnRemover
             // 
@@ -289,14 +311,7 @@
             this.btnRemover.Size = new System.Drawing.Size(97, 60);
             this.btnRemover.TabIndex = 21;
             this.btnRemover.UseVisualStyleBackColor = true;
-            // 
-            // toolTip1
-            // 
-            this.toolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip1_Popup);
-            // 
-            // toolTip2
-            // 
-            this.toolTip2.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip2_Popup);
+            this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
             // 
             // frmCadastroProduto
             // 
@@ -308,7 +323,7 @@
             this.pnDados.PerformLayout();
             this.pnButton.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -337,8 +352,8 @@
         private System.Windows.Forms.Label lblCodProduto;
         private System.Windows.Forms.Button btnRemover;
         private System.Windows.Forms.Button btnCarregar;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.ToolTip toolTip2;
+        private System.Windows.Forms.PictureBox pbFoto;
+        private System.Windows.Forms.ToolTip toolTipCarrega;
+        private System.Windows.Forms.ToolTip toolTipRemove;
     }
 }
