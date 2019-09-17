@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
@@ -235,7 +236,7 @@ namespace UI
             if (!string.IsNullOrEmpty(od.FileName))
             {
                 this.foto = od.FileName;
-                pbFoto.Load(foto);
+                pbFoto.Load(this.foto);
             }
         }
 
@@ -247,26 +248,44 @@ namespace UI
 
         private void btnLocalizar_Click(object sender, EventArgs e)
         {
-            //frmConsultaCategoria f = new frmConsultaCategoria();
-            //f.ShowDialog();
+            frmConsultaProduto f = new frmConsultaProduto();
+            f.ShowDialog();
 
-            //if (f.codigo != 0)
-            //{
-            //    DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-            //    BLLCategoria bll = new BLLCategoria(cx);
-            //    ModeloCategoria modelo = bll.CarregaModeloCategoria(f.codigo);
-            //    txtCodigo.Text = modelo.CatCod.ToString();
-            //    txtNome.Text = modelo.CatNome;
-            //    AlteraBotoes(3);
-            //}
+            if (f.codigo != 0)
+            {
+                DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+                BLLProduto bll = new BLLProduto(cx);
+                ModeloProduto modelo = bll.CarregaModeloProduto(f.codigo);
+                txtCodProduto.Text = modelo.ProCod.ToString();
+                txtNomeProduto.Text = modelo.ProNome;
+                txtDescricaoProduto.Text = modelo.ProDescricao;
+                txtQtdeProduto.Text = modelo.ProQtde.ToString();
+                txtValorPago.Text = modelo.ProValorPago.ToString();
+                txtValorVenda.Text = modelo.ProValorVenda.ToString();
+                cmbCategoria.SelectedValue = modelo.CatCod;
+                cmbSubCategoria.SelectedValue = modelo.ScatCod;
+                cmbUnMedida.SelectedValue = modelo.UmedCod;
 
-            //else
-            //{
-            //    this.LimpaTela();
-            //    this.AlteraBotoes(1);
-            //}
+                try
+                {
+                    MemoryStream ms = new MemoryStream(modelo.ProFoto);
+                    pbFoto.Image = Image.FromStream(ms);
+                }
+                catch
+                {
 
-            //f.Dispose();
+                }
+                
+                AlteraBotoes(3);
+            }
+
+            else
+            {
+                this.LimpaTela();
+                this.AlteraBotoes(1);
+            }
+
+            f.Dispose();
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -274,8 +293,7 @@ namespace UI
             try
             {
                 DialogResult d = MessageBox.Show("Deseja excluir o registro?", "Aviso", MessageBoxButtons.YesNo);
-                //chamado 3: usuário reclamou que não estava excluindo o cadastro, o erro ocorreu porque no if de validação da exlusão estava 
-                //"SIM" e não "YES" e a palavra em português não era reconhecida.
+
                 if (d.ToString() == "Yes")
                 {
                     DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);

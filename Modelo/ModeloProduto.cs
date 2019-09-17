@@ -14,7 +14,7 @@ namespace Modelo
             this.ProCod = 0;
             this.ProNome = "";
             this.ProDescricao = "";
-            //foto null;
+            //null;
             this.ProValorPago = 0;
             this.ProValorVenda = 0;
             this.ProQtde = 0;
