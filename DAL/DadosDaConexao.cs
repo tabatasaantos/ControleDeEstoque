@@ -4,15 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL
+namespace DAL 
 {
-    public class DadosDaConexao
+    public class DadosDaConexao //classe para passar os dados de conexão com o BD.
     {
-        public static string StringDeConexao
+        public static string servidor = @"TABATA - PC\SQLEXPRESS"; //criando atributos estáticos para os dados do banco.
+        public static string banco = "DB_CONTROLE_ESTOQUE";
+        public static string usuario = "sa";
+        public static string senha = "barne";
+
+        public static string StringDeConexao //método que retorna os atributos
         {
             get
             {
-                return "Data Source=TABATA-PC\\SQLEXPRESS;Initial Catalog=DB_CONTROLE_ESTOQUE;User ID=sa;Password=barne";
+                return @"Data Source="+servidor+";Initial Catalog="+banco+";User ID="+usuario+";Password="+senha; //retornando o que contém nos atributos
             }
         }
     }

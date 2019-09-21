@@ -6,31 +6,31 @@ using System.Threading.Tasks;
 
 namespace Modelo
 {
-    public class ModeloCategoria
+    public class ModeloCategoria //classe 
     {
-        public ModeloCategoria()
+        public ModeloCategoria()  //construtor 
         {
-            this.CatCod = 0;
-            this.CatNome = "";
+            this.CatCod = 0; //é zero porque o construtor está sem parâmetro.
+            this.CatNome = ""; //é vázio porque o construtor está sem parâmetro.
         }
 
-        public ModeloCategoria(int catcod, string nome)
+        public ModeloCategoria(int catcod, string nome) //construtor passando valores
         {
-            this.CatCod = catcod;
+            this.CatCod = catcod; //passando valor para os atributos dos parâmetros.
             this.CatNome = nome;
         }
 
-        private int cat_cod;
-        public int CatCod
+        private int cat_cod; //criando variável
+        public int CatCod //criando propriedade
         {
-            get { return this.cat_cod; }
-            set { this.cat_cod = value; }
+            get { return this.cat_cod; }  //se for pegar retorna o valor da cat_cod
+            set { this.cat_cod = value; } //se for passar, passa o valor do parâmetro
         }
-        private string cat_nome;
-        public string CatNome
+        private string cat_nome; //criando a variável
+        public string CatNome //criando propriedade
         {
-            get { return this.cat_nome; }
-            set { this.cat_nome = value; }
+            get { return this.cat_nome; } //se for pegar retorna o valor da cat_nome
+            set { this.cat_nome = value; } //se for passar, passa o valor do parâmetro
         }
     }
 }

@@ -1,8 +1,11 @@
-﻿using System;
+﻿using DAL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -72,5 +75,61 @@ namespace UI
             f.ShowDialog();
             f.Dispose();
         }
+
+        private void backupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void configuraçãoDoBandoDeDadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmConfiguracaoBancoDados f = new frmConfiguracaoBancoDados();
+            f.ShowDialog();
+            f.Dispose();
+        }
+        //caminhos do windows
+        private void calculadoraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("calc");
+        }
+
+        private void explorerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("explorer");
+        }
+
+        private void blocoDeNotasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("notepad");
+        }
+        //fim
+        private void frmPrincipal_Load(object sender, EventArgs e)
+        {
+            //verificar conexão com o banco
+            try
+            {
+                StreamReader arquivo = new StreamReader("ConfiguracaBanco.txt");
+                DadosDaConexao.servidor = arquivo.ReadLine();
+                DadosDaConexao.banco = arquivo.ReadLine();
+                DadosDaConexao.usuario = arquivo.ReadLine();
+                DadosDaConexao.senha = arquivo.ReadLine();
+                arquivo.Close();
+                //testar conexão
+                SqlConnection conexao = new SqlConnection();
+                conexao.ConnectionString = DadosDaConexao.StringDeConexao;
+                conexao.Open();
+                conexao.Close();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Erro ao conectar no Bando de Dados.\n Acesse as configuração do bando de dados" +
+                    "e informe os parâmetros de conexão.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
     }
 }

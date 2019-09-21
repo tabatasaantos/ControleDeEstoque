@@ -44,3 +44,4 @@ C:\gitRepository\ControleDeEstoque\UI\obj\Debug\UI.frmCadastroUnidadeDeMedida.re
 C:\gitRepository\ControleDeEstoque\UI\obj\Debug\UI.frmConsultaUnidadeDeMedida.resources
 C:\gitRepository\ControleDeEstoque\UI\obj\Debug\UI.frmCadastroProduto.resources
 C:\gitRepository\ControleDeEstoque\UI\obj\Debug\UI.frmConsultaProduto.resources
+C:\gitRepository\ControleDeEstoque\UI\obj\Debug\UI.frmConfiguracaoBancoDados.resources

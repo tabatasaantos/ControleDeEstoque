@@ -130,6 +130,7 @@
             // 
             // txtCodProduto
             // 
+            this.txtCodProduto.Enabled = false;
             this.txtCodProduto.Location = new System.Drawing.Point(21, 27);
             this.txtCodProduto.Name = "txtCodProduto";
             this.txtCodProduto.Size = new System.Drawing.Size(100, 20);

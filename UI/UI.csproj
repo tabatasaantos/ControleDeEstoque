@@ -70,6 +70,12 @@
     <Compile Include="frmCadastroUnidadeDeMedida.Designer.cs">
       <DependentUpon>frmCadastroUnidadeDeMedida.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmConfiguracaoBancoDados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConfiguracaoBancoDados.Designer.cs">
+      <DependentUpon>frmConfiguracaoBancoDados.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmConsultaCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCadastroUnidadeDeMedida.resx">
       <DependentUpon>frmCadastroUnidadeDeMedida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConfiguracaoBancoDados.resx">
+      <DependentUpon>frmConfiguracaoBancoDados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmConsultaCategoria.resx">
       <DependentUpon>frmConsultaCategoria.cs</DependentUpon>
@@ -189,6 +198,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Salvar1.fw.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

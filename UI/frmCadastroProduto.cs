@@ -50,14 +50,18 @@ namespace UI
             cmbCategoria.DataSource = bll.Localizar("");
             cmbCategoria.DisplayMember = "cat_nome";
             cmbCategoria.ValueMember = "cat_cod";
-
+            cmbCategoria.SelectedIndex = -1;
             try
             {
                 //combo da subcategoria           
                 BLLSubCategoria sbll = new BLLSubCategoria(cx);
-                cmbSubCategoria.DataSource = sbll.LocalizarPorCategoria((int)cmbCategoria.SelectedValue);
-                cmbSubCategoria.DisplayMember = "scat_nome";
-                cmbSubCategoria.ValueMember = "scat_cod";
+                if(cmbCategoria.SelectedIndex >= 0)
+                {
+                    cmbSubCategoria.DataSource = sbll.LocalizarPorCategoria((int)cmbCategoria.SelectedValue);
+                    cmbSubCategoria.DisplayMember = "scat_nome";
+                    cmbSubCategoria.ValueMember = "scat_cod";
+                }
+
             }
             catch
             {
@@ -71,18 +75,18 @@ namespace UI
             cmbUnMedida.ValueMember = "umed_cod";
         }
 
-        private void txtValorVenda_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtValorVenda_KeyPress(object sender, KeyPressEventArgs e) // evento 
         {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != '.')
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != ',')
             {
                 e.Handled = true;
             }
 
             if (e.KeyChar == ',' || e.KeyChar == '.')
             {
-                if (!txtValorVenda.Text.Contains("."))
+                if (!txtValorVenda.Text.Contains(","))
                 {
-                    e.KeyChar = '.';
+                    e.KeyChar = ',';
                 }
 
                 else
@@ -92,15 +96,15 @@ namespace UI
             }
         }
 
-        private void txtValorVenda_Leave(object sender, EventArgs e)
+        private void txtValorVenda_Leave(object sender, EventArgs e) // 
         {
-            if (txtValorVenda.Text.Contains(".") == false)
+            if (txtValorVenda.Text.Contains(",") == false)
             {
-                txtValorVenda.Text += ".00";
+                txtValorVenda.Text += ",00";
             }
             else
             {
-                if (txtValorVenda.Text.IndexOf(".") == txtValorVenda.Text.Length - 1)
+                if (txtValorVenda.Text.IndexOf(",") == txtValorVenda.Text.Length - 1)
                 {
                     txtValorVenda.Text += "00";
                 }
@@ -113,22 +117,22 @@ namespace UI
 
             catch
             {
-                txtValorVenda.Text = "0.00";
+                txtValorVenda.Text = "0,00";
             }
         }
 
         private void txtValorPago_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != '.')
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != ',')
             {
                 e.Handled = true;
             }
 
             if (e.KeyChar == ',' || e.KeyChar == '.')
             {
-                if (!txtValorPago.Text.Contains("."))
+                if (!txtValorPago.Text.Contains(","))
                 {
-                    e.KeyChar = '.';
+                    e.KeyChar = ',';
                 }
 
                 else
@@ -141,13 +145,13 @@ namespace UI
         private void txtValorPago_Leave(object sender, EventArgs e)
         {
             {
-                if (txtValorPago.Text.Contains(".") == false)
+                if (txtValorPago.Text.Contains(",") == false)
                 {
-                    txtValorPago.Text += ".00";
+                    txtValorPago.Text += ",00";
                 }
                 else
                 {
-                    if (txtValorPago.Text.IndexOf(".") == txtValorPago.Text.Length - 1)
+                    if (txtValorPago.Text.IndexOf(",") == txtValorPago.Text.Length - 1)
                     {
                         txtValorPago.Text += "00";
                     }
@@ -160,23 +164,23 @@ namespace UI
 
                 catch
                 {
-                    txtValorPago.Text = "0.00";
+                    txtValorPago.Text = "0,00";
                 }
             }
         }
 
         private void txtQtdeProduto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != '.')
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != ',')
             {
                 e.Handled = true;
             }
 
             if (e.KeyChar == ',' || e.KeyChar == '.')
             {
-                if (!txtQtdeProduto.Text.Contains("."))
+                if (!txtQtdeProduto.Text.Contains(","))
                 {
-                    e.KeyChar = '.';
+                    e.KeyChar = ',';
                 }
 
                 else
@@ -188,13 +192,13 @@ namespace UI
 
         private void txtQtdeProduto_Leave(object sender, EventArgs e)
         {
-            if (txtQtdeProduto.Text.Contains(".") == false)
+            if (txtQtdeProduto.Text.Contains(",") == false)
             {
-                txtQtdeProduto.Text += ".00";
+                txtQtdeProduto.Text += ",00";
             }
             else
             {
-                if (txtQtdeProduto.Text.IndexOf(".") == txtQtdeProduto.Text.Length - 1)
+                if (txtQtdeProduto.Text.IndexOf(",") == txtQtdeProduto.Text.Length - 1)
                 {
                     txtQtdeProduto.Text += "00";
                 }
@@ -207,7 +211,7 @@ namespace UI
 
             catch
             {
-                txtQtdeProduto.Text = "0.00";
+                txtQtdeProduto.Text = "0,00";
             }
         }
 
@@ -219,9 +223,13 @@ namespace UI
                 cmbSubCategoria.Text = "";
                 //combo da subcategoria           
                 BLLSubCategoria sbll = new BLLSubCategoria(cx);
-                cmbSubCategoria.DataSource = sbll.LocalizarPorCategoria((int)cmbCategoria.SelectedValue);
-                cmbSubCategoria.DisplayMember = "scat_nome";
-                cmbSubCategoria.ValueMember = "scat_cod";
+                int teste = 0;
+                if (int.TryParse(cmbCategoria.SelectedValue?.ToString(), out teste))
+                {
+                    cmbSubCategoria.DataSource = sbll.LocalizarPorCategoria((int)cmbCategoria.SelectedValue);
+                    cmbSubCategoria.DisplayMember = "scat_nome";
+                    cmbSubCategoria.ValueMember = "scat_cod";
+                }
             }
             catch
             {
@@ -256,9 +264,11 @@ namespace UI
                 DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
                 BLLProduto bll = new BLLProduto(cx);
                 ModeloProduto modelo = bll.CarregaModeloProduto(f.codigo);
+                txtCodProduto.Text = modelo.CatCod.ToString();
+                //colocar os dados na tela
                 txtCodProduto.Text = modelo.ProCod.ToString();
-                txtNomeProduto.Text = modelo.ProNome;
                 txtDescricaoProduto.Text = modelo.ProDescricao;
+                txtNomeProduto.Text = modelo.ProNome;
                 txtQtdeProduto.Text = modelo.ProQtde.ToString();
                 txtValorPago.Text = modelo.ProValorPago.ToString();
                 txtValorVenda.Text = modelo.ProValorVenda.ToString();
@@ -270,12 +280,16 @@ namespace UI
                 {
                     MemoryStream ms = new MemoryStream(modelo.ProFoto);
                     pbFoto.Image = Image.FromStream(ms);
+                    this.foto = "Foto Original";
                 }
                 catch
                 {
 
                 }
-                
+
+                txtQtdeProduto_Leave(sender, e);
+                txtValorPago_Leave(sender, e);
+                txtValorVenda_Leave(sender, e);
                 AlteraBotoes(3);
             }
 
@@ -330,7 +344,6 @@ namespace UI
                 modelo.UmedCod = Convert.ToInt32(cmbUnMedida.SelectedValue);
                 modelo.CatCod = Convert.ToInt32(cmbCategoria.SelectedValue);
                 modelo.ScatCod = Convert.ToInt32(cmbSubCategoria.SelectedValue);
-                modelo.CarregaImagem(this.foto);
 
                 //obj para gravar os dados no BD
                 DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
@@ -338,12 +351,27 @@ namespace UI
 
                 if (this.operacao == "Inserir")
                 {
+                    //cadastrar um produto  
+                    modelo.CarregaImagem(this.foto);
                     bll.Incluir(modelo);
                     MessageBox.Show("Cadastro efetuado: Código " + modelo.ProCod.ToString());
                 }
                 else
                 {
                     modelo.ProCod = Convert.ToInt32(txtCodProduto.Text);
+                    //alterar produto
+
+                    if (this.foto == "Foto Original")
+                    {
+                        ModeloProduto mt = bll.CarregaModeloProduto(modelo.ProCod);
+                        modelo.ProFoto = mt.ProFoto;
+                    }
+
+                    else
+                    {
+                        modelo.CarregaImagem(this.foto);
+                    }
+
                     bll.Alterar(modelo);
                     MessageBox.Show("Cadastro alterado com sucesso!");
                 }
@@ -367,8 +395,8 @@ namespace UI
     }
 }
 
-       
-    
+
+
 
 
 
