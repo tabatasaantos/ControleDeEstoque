@@ -11,24 +11,24 @@ namespace DAL
 {
     public class DALSubCategoria
     {
-        private DALConexao conexao;
+        private DALConexao conexao; //criando atributo do tipo DAL
 
-        public DALSubCategoria(DALConexao cx)
+        public DALSubCategoria(DALConexao cx) //construtor com parâmetro do tipo DAL
         {
-            this.conexao = cx;
+            this.conexao = cx; //passando o valor do atributo para o parâmetro 
         }
 
-        public void Incluir(ModeloSubCategoria modelo)
+        public void Incluir(ModeloSubCategoria modelo) //criando método com parâmetro do tipo modelo
         {
             try
             {
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = conexao.ObjetoConexao;
+                SqlCommand cmd = new SqlCommand(); //inicializando uma nova instância da classe sql
+                cmd.Connection = conexao.ObjetoConexao; //passando para a variável local e propriedade do Sql a variável conexão com a proprieda Objeto
                 cmd.CommandText = "INSERT SUBCATEGORIA(CAT_COD, SCAT_NOME) VALUES (@CATCOD, @NOME); SELECT @@IDENTITY;";
                 cmd.Parameters.AddWithValue("@CATCOD", modelo.CatCod);
                 cmd.Parameters.AddWithValue("@NOME", modelo.SCatNome);
                 conexao.Conectar();
-                modelo.ScatCod = Convert.ToInt32(cmd.ExecuteScalar());
+                modelo.ScatCod = Convert.ToInt32(cmd.ExecuteScalar()); //executa a primeira linha, as adicionais são ignoradas 
             }
             catch (Exception ex)
             {

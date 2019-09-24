@@ -59,26 +59,26 @@ namespace DAL
 
         public DataTable Localizar(string valor) //criando método do tipo DataTable que retorna os dados do BD
         {
-            DataTable tabela = new DataTable(); //inicializa uma nova instância da classe DataTable
-            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM CATEGORIA WHERE CAT_NOME LIKE '%" + valor + "%'", conexao.StringConexao);
-            da.Fill(tabela);
-            return tabela;
+            DataTable tabela = new DataTable(); //inicializa uma nova instância da classe DataTable (uma tabela vázia)
+            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM CATEGORIA WHERE CAT_NOME LIKE '%" + valor + "%'", conexao.StringConexao); //executa um comando no banco para retornar valores.
+            da.Fill(tabela); //atualiza/adiciona as linhas dos valores da que estão armazenados na tabela
+            return tabela; //retorna o valor 
 
 
         }
 
-        public ModeloCategoria CarregaModeloCategoria(int codigo)
+        public ModeloCategoria CarregaModeloCategoria(int codigo) //criando método do tipo Modelo com parâmetro
         {
-            ModeloCategoria modelo = new ModeloCategoria();
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = conexao.ObjetoConexao;
+            ModeloCategoria modelo = new ModeloCategoria(); //iniciando uma nova instância pra classe modelo
+            SqlCommand cmd = new SqlCommand(); //comando sql
+            cmd.Connection = conexao.ObjetoConexao; //passando para a variável local e propriedade do Sql a variável conexão com a proprieda Objeto
             cmd.CommandText = "SELECT * FROM CATEGORIA WHERE CAT_COD = @CODIGO";
             cmd.Parameters.AddWithValue("@CODIGO", codigo);
             conexao.Conectar();
-            SqlDataReader registro = cmd.ExecuteReader();
-            if(registro.HasRows)
+            SqlDataReader registro = cmd.ExecuteReader(); //passando para a variável registro os dados com mais detalhes da conexão do banco
+            if(registro.HasRows) //verificando se há dados na variável registro
             {
-                registro.Read();
+                registro.Read(); //lendo os dados da variável registro
                 modelo.CatCod = Convert.ToInt32(registro["CAT_COD"]);
                 modelo.CatNome = Convert.ToString(registro["CAT_NOME"]);
             }

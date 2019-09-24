@@ -10,8 +10,8 @@ namespace Modelo
     {
         public ModeloCategoria()  //construtor 
         {
-            this.CatCod = 0; //é zero porque o construtor está sem parâmetro.
-            this.CatNome = ""; //é vázio porque o construtor está sem parâmetro.
+            this.CatCod = 0; //não tem valor porque o construtor está sem parâmetro
+            this.CatNome = ""; 
         }
 
         public ModeloCategoria(int catcod, string nome) //construtor passando valores
