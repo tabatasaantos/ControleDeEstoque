@@ -78,7 +78,9 @@ namespace UI
 
         private void backupToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            frmBackupBancoDeDados f = new frmBackupBancoDeDados();
+            f.ShowDialog();
+            f.Dispose();
         }
 
         private void configuraçãoDoBandoDeDadosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -88,20 +90,20 @@ namespace UI
             f.Dispose();
         }
         //caminhos do windows
-        private void calculadoraToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            System.Diagnostics.Process.Start("calc");
-        }
+        //private void calculadoraToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    System.Diagnostics.Process.Start("calc");
+        //}
 
-        private void explorerToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            System.Diagnostics.Process.Start("explorer");
-        }
+        //private void explorerToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    System.Diagnostics.Process.Start("explorer");
+        //}
 
-        private void blocoDeNotasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            System.Diagnostics.Process.Start("notepad");
-        }
+        //private void blocoDeNotasToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    System.Diagnostics.Process.Start("notepad");
+        //}
         //fim
         private void frmPrincipal_Load(object sender, EventArgs e)
         {

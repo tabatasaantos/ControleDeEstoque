@@ -11,7 +11,7 @@ namespace DAL
 {
     public class DALUnidadeDeMedida
     {
-        private DALConexao conexao;
+        private DALConexao conexao; //criando atributo do tipo Dal
         
         public DALUnidadeDeMedida(DALConexao cx)
         {

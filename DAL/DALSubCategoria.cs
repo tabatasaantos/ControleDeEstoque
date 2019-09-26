@@ -32,7 +32,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                throw new Exception(ex.Message); //tratando o erro direto
             }
             finally
             {
@@ -45,7 +45,7 @@ namespace DAL
         {
             try
             {
-                SqlCommand cmd = new SqlCommand();
+                SqlCommand cmd = new SqlCommand(); //inicializando uma nova instância da classe sql
                 cmd.Connection = conexao.ObjetoConexao;
                 //erro 2: erro ao alterar uma subcategoria. Erro ocorreu porque o comabdo SQL estava com o AND no lugar da ,.
                 //cmd.CommandText = "UPDATE SUBCATEGORIA SET SCAT_NOME = @NOME AND CAT_COD = @CATCOD WHERE SCAT_COD = @SCATCOD;";
@@ -100,7 +100,7 @@ namespace DAL
             // retornava um valor nulo.
             // passando o "da" que é o que contém o comando SQL conforme passado acima, precisamos atribuir o que o comando trás
             // com o FILL para a variável criada na datatable para ela não fica vazia.
-            return tabela; //retornando o resultado do comando SQL
+            return tabela; //retornando o resultado do comando SQL pela variável 
         }
 
         public DataTable LocalizarPorCategoria(int categoria)

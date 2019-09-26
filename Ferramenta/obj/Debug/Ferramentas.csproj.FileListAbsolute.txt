@@ -1,0 +1,6 @@
+C:\gitRepository\ControleDeEstoque\Ferramenta\bin\Debug\Ferramenta.dll
+C:\gitRepository\ControleDeEstoque\Ferramenta\bin\Debug\Ferramenta.pdb
+C:\gitRepository\ControleDeEstoque\Ferramenta\obj\Debug\Ferramentas.csprojAssemblyReference.cache
+C:\gitRepository\ControleDeEstoque\Ferramenta\obj\Debug\Ferramentas.csproj.CoreCompileInputs.cache
+C:\gitRepository\ControleDeEstoque\Ferramenta\obj\Debug\Ferramenta.dll
+C:\gitRepository\ControleDeEstoque\Ferramenta\obj\Debug\Ferramenta.pdb
