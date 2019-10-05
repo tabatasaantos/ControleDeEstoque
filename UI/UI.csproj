@@ -70,6 +70,12 @@
     <Compile Include="frmCadastroSubCategoria.Designer.cs">
       <DependentUpon>frmCadastroSubCategoria.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCadastroTipoDePagamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCadastroTipoDePagamento.Designer.cs">
+      <DependentUpon>frmCadastroTipoDePagamento.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCadastroUnidadeDeMedida.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,12 @@
     <Compile Include="frmConsultaSubCategoria.Designer.cs">
       <DependentUpon>frmConsultaSubCategoria.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmConsultaTipoDePagamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsultaTipoDePagamento.Designer.cs">
+      <DependentUpon>frmConsultaTipoDePagamento.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmConsultaUnidadeDeMedida.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +141,9 @@
     <EmbeddedResource Include="frmCadastroSubCategoria.resx">
       <DependentUpon>frmCadastroSubCategoria.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCadastroTipoDePagamento.resx">
+      <DependentUpon>frmCadastroTipoDePagamento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCadastroUnidadeDeMedida.resx">
       <DependentUpon>frmCadastroUnidadeDeMedida.cs</DependentUpon>
     </EmbeddedResource>
@@ -143,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmConsultaSubCategoria.resx">
       <DependentUpon>frmConsultaSubCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConsultaTipoDePagamento.resx">
+      <DependentUpon>frmConsultaTipoDePagamento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmConsultaUnidadeDeMedida.resx">
       <DependentUpon>frmConsultaUnidadeDeMedida.cs</DependentUpon>

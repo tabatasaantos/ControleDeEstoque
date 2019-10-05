@@ -125,7 +125,7 @@ namespace UI
             catch (SqlException ex)
             {
                 MessageBox.Show("Erro ao conectar no Bando de Dados.\n Acesse as configuração do bando de dados" +
-                    "e informe os parâmetros de conexão.");
+                    " e informe os parâmetros de conexão.");
             }
             catch (Exception ex)
             {
@@ -133,5 +133,11 @@ namespace UI
             }
         }
 
+        private void tipoDePagamentoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCadastroTipoDePagamento f = new frmCadastroTipoDePagamento();
+            f.ShowDialog();
+            f.Dispose();
+        }
     }
 }
