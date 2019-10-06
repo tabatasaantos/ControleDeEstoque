@@ -54,6 +54,9 @@
             this.btnRemover = new System.Windows.Forms.Button();
             this.toolTipCarrega = new System.Windows.Forms.ToolTip(this.components);
             this.toolTipRemove = new System.Windows.Forms.ToolTip(this.components);
+            this.btnAddCat = new System.Windows.Forms.Button();
+            this.btnAddUMed = new System.Windows.Forms.Button();
+            this.btnAddSubCat = new System.Windows.Forms.Button();
             this.pnDados.SuspendLayout();
             this.pnButton.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -62,6 +65,9 @@
             // 
             // pnDados
             // 
+            this.pnDados.Controls.Add(this.btnAddSubCat);
+            this.pnDados.Controls.Add(this.btnAddUMed);
+            this.pnDados.Controls.Add(this.btnAddCat);
             this.pnDados.Controls.Add(this.btnRemover);
             this.pnDados.Controls.Add(this.btnCarregar);
             this.pnDados.Controls.Add(this.lblFoto);
@@ -314,6 +320,36 @@
             this.btnRemover.UseVisualStyleBackColor = true;
             this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
             // 
+            // btnAddCat
+            // 
+            this.btnAddCat.Location = new System.Drawing.Point(164, 253);
+            this.btnAddCat.Name = "btnAddCat";
+            this.btnAddCat.Size = new System.Drawing.Size(22, 23);
+            this.btnAddCat.TabIndex = 22;
+            this.btnAddCat.Text = "+";
+            this.btnAddCat.UseVisualStyleBackColor = true;
+            this.btnAddCat.Click += new System.EventHandler(this.btnAddCat_Click);
+            // 
+            // btnAddUMed
+            // 
+            this.btnAddUMed.Location = new System.Drawing.Point(369, 214);
+            this.btnAddUMed.Name = "btnAddUMed";
+            this.btnAddUMed.Size = new System.Drawing.Size(22, 23);
+            this.btnAddUMed.TabIndex = 23;
+            this.btnAddUMed.Text = "+";
+            this.btnAddUMed.UseVisualStyleBackColor = true;
+            this.btnAddUMed.Click += new System.EventHandler(this.btnAddUMed_Click);
+            // 
+            // btnAddSubCat
+            // 
+            this.btnAddSubCat.Location = new System.Drawing.Point(369, 253);
+            this.btnAddSubCat.Name = "btnAddSubCat";
+            this.btnAddSubCat.Size = new System.Drawing.Size(22, 23);
+            this.btnAddSubCat.TabIndex = 24;
+            this.btnAddSubCat.Text = "+";
+            this.btnAddSubCat.UseVisualStyleBackColor = true;
+            this.btnAddSubCat.Click += new System.EventHandler(this.btnAddSubCat_Click);
+            // 
             // frmCadastroProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -356,5 +392,8 @@
         private System.Windows.Forms.PictureBox pbFoto;
         private System.Windows.Forms.ToolTip toolTipCarrega;
         private System.Windows.Forms.ToolTip toolTipRemove;
+        private System.Windows.Forms.Button btnAddSubCat;
+        private System.Windows.Forms.Button btnAddUMed;
+        private System.Windows.Forms.Button btnAddCat;
     }
 }

@@ -392,6 +392,71 @@ namespace UI
             this.operacao = "Alterar";
             this.AlteraBotoes(2);
         }
+
+        private void btnAddCat_Click(object sender, EventArgs e)
+        {
+            frmCadastroCategoria f = new frmCadastroCategoria();
+            f.ShowDialog();
+            f.Dispose();
+            DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+            BLLCategoria bll = new BLLCategoria(cx);
+            cmbCategoria.DataSource = bll.Localizar("");
+            cmbCategoria.DisplayMember = "cat_nome";
+            cmbCategoria.ValueMember = "cat_cod";
+            cmbCategoria.SelectedIndex = -1;
+            try
+            {
+                //combo da subcategoria           
+                BLLSubCategoria sbll = new BLLSubCategoria(cx);
+                if (cmbCategoria.SelectedIndex >= 0)
+                {
+                    cmbSubCategoria.DataSource = sbll.LocalizarPorCategoria((int)cmbCategoria.SelectedValue);
+                    cmbSubCategoria.DisplayMember = "scat_nome";
+                    cmbSubCategoria.ValueMember = "scat_cod";
+                }
+
+            }
+            catch
+            {
+                MessageBox.Show("Cadastre uma categoria!");
+            }
+        }
+
+        private void btnAddSubCat_Click(object sender, EventArgs e)
+        {
+            frmCadastroSubCategoria f = new frmCadastroSubCategoria();
+            f.ShowDialog();
+            f.Dispose();
+            DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+ 
+            try
+            {          
+                BLLSubCategoria sbll = new BLLSubCategoria(cx);
+                if (cmbCategoria.SelectedIndex >= 0)
+                {
+                    cmbSubCategoria.DataSource = sbll.LocalizarPorCategoria((int)cmbCategoria.SelectedValue);
+                    cmbSubCategoria.DisplayMember = "scat_nome";
+                    cmbSubCategoria.ValueMember = "scat_cod";
+                }
+
+            }
+            catch
+            {
+                MessageBox.Show("Cadastre uma categoria!");
+            }
+        }
+
+        private void btnAddUMed_Click(object sender, EventArgs e)
+        {
+            frmCadastroUnidadeDeMedida f = new frmCadastroUnidadeDeMedida();
+            f.ShowDialog();
+            f.Dispose();
+            DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+            BLLUnidadeDeMedida ubll = new BLLUnidadeDeMedida(cx);
+            cmbUnMedida.DataSource = ubll.Localizar("");
+            cmbUnMedida.DisplayMember = "umed_nome";
+            cmbUnMedida.ValueMember = "umed_cod";
+        }
     }
 }
 

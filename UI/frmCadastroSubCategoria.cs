@@ -138,5 +138,17 @@ namespace UI
 
             f.Dispose();
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            frmCadastroCategoria f = new frmCadastroCategoria();
+            f.ShowDialog();
+            f.Dispose();
+            DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+            BLLCategoria bll = new BLLCategoria(cx);
+            cbNomeCat.DataSource = bll.Localizar("");
+            cbNomeCat.DisplayMember = "cat_nome";
+            cbNomeCat.ValueMember = "cat_cod";
+        }
     }
 }

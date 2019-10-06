@@ -34,12 +34,14 @@
             this.lblNomeCat = new System.Windows.Forms.Label();
             this.txtCodigoSubCat = new System.Windows.Forms.TextBox();
             this.txtNomeSubCat = new System.Windows.Forms.TextBox();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.pnDados.SuspendLayout();
             this.pnButton.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnDados
             // 
+            this.pnDados.Controls.Add(this.btnAdd);
             this.pnDados.Controls.Add(this.txtNomeSubCat);
             this.pnDados.Controls.Add(this.txtCodigoSubCat);
             this.pnDados.Controls.Add(this.lblNomeCat);
@@ -93,6 +95,7 @@
             // 
             // cbNomeCat
             // 
+            this.cbNomeCat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbNomeCat.FormattingEnabled = true;
             this.cbNomeCat.Location = new System.Drawing.Point(27, 148);
             this.cbNomeCat.Name = "cbNomeCat";
@@ -124,6 +127,16 @@
             this.txtNomeSubCat.Size = new System.Drawing.Size(422, 20);
             this.txtNomeSubCat.TabIndex = 5;
             // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(455, 146);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(22, 23);
+            this.btnAdd.TabIndex = 6;
+            this.btnAdd.Text = "+";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
             // frmCadastroSubCategoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -147,5 +160,6 @@
         private System.Windows.Forms.ComboBox cbNomeCat;
         private System.Windows.Forms.Label lblNomeSubCat;
         private System.Windows.Forms.Label lblCodigo;
+        private System.Windows.Forms.Button btnAdd;
     }
 }
