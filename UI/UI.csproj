@@ -58,6 +58,12 @@
     <Compile Include="frmCadastroCategoria.Designer.cs">
       <DependentUpon>frmCadastroCategoria.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCadastroCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCadastroCliente.Designer.cs">
+      <DependentUpon>frmCadastroCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCadastroProduto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +140,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmBackupBancoDeDados.resx">
       <DependentUpon>frmBackupBancoDeDados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCadastroCliente.resx">
+      <DependentUpon>frmCadastroCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCadastroProduto.resx">
       <DependentUpon>frmCadastroProduto.cs</DependentUpon>

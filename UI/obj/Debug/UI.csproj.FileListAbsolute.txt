@@ -50,3 +50,4 @@ C:\gitRepository\ControleDeEstoque\UI\bin\Debug\Ferramenta.pdb
 C:\gitRepository\ControleDeEstoque\UI\obj\Debug\UI.frmBackupBancoDeDados.resources
 C:\gitRepository\ControleDeEstoque\UI\obj\Debug\UI.frmCadastroTipoDePagamento.resources
 C:\gitRepository\ControleDeEstoque\UI\obj\Debug\UI.frmConsultaTipoDePagamento.resources
+C:\gitRepository\ControleDeEstoque\UI\obj\Debug\UI.frmCadastroCliente.resources

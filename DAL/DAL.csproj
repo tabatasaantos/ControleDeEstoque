@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="DadosDaConexao.cs" />
     <Compile Include="DALCategoria.cs" />
+    <Compile Include="DALCliente.cs" />
     <Compile Include="DALConexao.cs" />
     <Compile Include="DALProduto.cs" />
     <Compile Include="DALSubCategoria.cs" />
