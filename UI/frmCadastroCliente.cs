@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Ferramentas;
 
 namespace UI
 {
@@ -101,6 +102,18 @@ namespace UI
             {
                 ModeloCliente modelo = new ModeloCliente();
                 modelo.CliNome = txtNomeCli.Text;
+                modelo.CliBairro = txtBairro.Text;
+                modelo.CliCel = mskCelular.Text;
+                modelo.CliCep = txtCEP.Text;
+                modelo.CliCidade = txtCidade.Text;
+                modelo.CliCpfCnpj = txtCPF.Text;
+                modelo.CliEmail = txtEmail.Text;
+                modelo.CliEndereco = txtRua.Text;
+                modelo.CliEndNum = txtNumero.Text;
+                modelo.CliEstado = txtEstado.Text;
+                modelo.CliFone = mskTelefone.Text;
+                modelo.CliRgIe = txtRG.Text;
+                modelo.CliRSocial = txtRSocial.Text;
                 DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
                 BLLCliente bll = new BLLCliente(cx);
 
@@ -153,6 +166,22 @@ namespace UI
                 txtRSocial.Visible = true;
                 lblCPF.Text = "CNPJ";
                 lblRG.Text = "IE";
+            }
+        }
+
+        private void txtCEP_Leave(object sender, EventArgs e)
+        {
+            if (BuscaEndereco.verificaCEP(txtCEP.Text) == true)
+            {
+                txtBairro.Text = BuscaEndereco.bairro;
+                txtEstado.Text = BuscaEndereco.estado;
+                txtCidade.Text = BuscaEndereco.cidade;
+                txtRua.Text = BuscaEndereco.endereco;
+            }
+
+            else
+            {
+                //limpar os campos do endereço
             }
         }
     }

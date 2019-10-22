@@ -127,6 +127,7 @@
             this.txtCodCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodCliente.Location = new System.Drawing.Point(9, 19);
             this.txtCodCliente.Name = "txtCodCliente";
+            this.txtCodCliente.ReadOnly = true;
             this.txtCodCliente.Size = new System.Drawing.Size(135, 20);
             this.txtCodCliente.TabIndex = 0;
             // 
@@ -267,6 +268,7 @@
             this.txtCEP.Name = "txtCEP";
             this.txtCEP.Size = new System.Drawing.Size(135, 20);
             this.txtCEP.TabIndex = 14;
+            this.txtCEP.Leave += new System.EventHandler(this.txtCEP_Leave);
             // 
             // txtEstado
             // 
@@ -334,6 +336,7 @@
             // 
             // txtNumero
             // 
+            this.txtNumero.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumero.Location = new System.Drawing.Point(515, 185);
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(76, 20);
@@ -361,6 +364,7 @@
             // 
             // txtBairro
             // 
+            this.txtBairro.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBairro.Location = new System.Drawing.Point(9, 223);
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.Size = new System.Drawing.Size(185, 20);
@@ -368,10 +372,11 @@
             // 
             // txtEmail
             // 
+            this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.Location = new System.Drawing.Point(220, 262);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(369, 20);
-            this.txtEmail.TabIndex = 25;
+            this.txtEmail.TabIndex = 27;
             // 
             // lblTelefone
             // 
@@ -395,17 +400,21 @@
             // 
             // mskTelefone
             // 
+            this.mskTelefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mskTelefone.Location = new System.Drawing.Point(10, 262);
+            this.mskTelefone.Mask = "(99) 0000-0000";
             this.mskTelefone.Name = "mskTelefone";
             this.mskTelefone.Size = new System.Drawing.Size(100, 20);
-            this.mskTelefone.TabIndex = 30;
+            this.mskTelefone.TabIndex = 25;
             // 
             // mskCelular
             // 
+            this.mskCelular.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mskCelular.Location = new System.Drawing.Point(116, 262);
+            this.mskCelular.Mask = "(99) 00000-0000";
             this.mskCelular.Name = "mskCelular";
             this.mskCelular.Size = new System.Drawing.Size(100, 20);
-            this.mskCelular.TabIndex = 31;
+            this.mskCelular.TabIndex = 26;
             // 
             // frmCadastroCliente
             // 

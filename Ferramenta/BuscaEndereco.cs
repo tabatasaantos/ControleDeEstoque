@@ -20,16 +20,17 @@ namespace Ferramentas
             bool flag = false;
             try
             {
-                DataSet ds = new DataSet();
-                string xml = "http://cep.republicavirtual.com.br/web_cep.php?cep=@cep&formato=xml".Replace("@cep", CEP);
-                ds.ReadXml(xml);
-                endereco = ds.Tables[0].Rows[0]["logradouro"].ToString();
+                DataSet ds = new DataSet(); //criando um dataset para fazer a leitura do que tem no xml.
+                string xml = "http://cep.republicavirtual.com.br/web_cep.php?cep=@cep&formato=xml".Replace("@cep", CEP); //acessando o webservice, passando o cep e armazenando o retorno dele num arquivo texto (xml)
+                ds.ReadXml(xml);//acessando os dados
+                endereco = ds.Tables[0].Rows[0]["logradouro"].ToString(); //devolvendo uma tabela e armazenando nos dados estáticos
                 bairro = ds.Tables[0].Rows[0]["bairro"].ToString();
                 cidade = ds.Tables[0].Rows[0]["cidade"].ToString();
                 estado = ds.Tables[0].Rows[0]["uf"].ToString();
                 cep = CEP;
                 flag = true;
             }
+            // se não houver nenhum retorno, retorna as variavéis estáticas vazias
             catch (Exception ex)
             {
                 endereco = "";
@@ -38,7 +39,7 @@ namespace Ferramentas
                 estado = "";
                 cep = "";
             }
-            return flag;
+            return flag; //o retorno dentro do flag, se entrar no try será verdadeiro, se não, será falso
         }
     }
 }

@@ -30,13 +30,17 @@ namespace DAL
             cmd.Parameters.AddWithValue("@CPFCNPJ", modelo.CliCpfCnpj);
             cmd.Parameters.AddWithValue("@RGIE", modelo.CliRgIe);
             cmd.Parameters.AddWithValue("@RSOCIAL", modelo.CliRSocial);
+            cmd.Parameters.AddWithValue("@TIPO", modelo.CliTipo);
             cmd.Parameters.AddWithValue("@CEP", modelo.CliCep);
             cmd.Parameters.AddWithValue("@ENDERECO", modelo.CliEndereco);
+            cmd.Parameters.AddWithValue("@CIDADE", modelo.CliCidade);
+            cmd.Parameters.AddWithValue("@ESTADO", modelo.CliEstado);
             cmd.Parameters.AddWithValue("@BAIRRO", modelo.CliBairro);
             cmd.Parameters.AddWithValue("@FONE", modelo.CliFone);
             cmd.Parameters.AddWithValue("@CEL", modelo.CliCel);
             cmd.Parameters.AddWithValue("@EMAIL", modelo.CliEmail);
             cmd.Parameters.AddWithValue("@ENUMERO", modelo.CliEndNum);
+
             conexao.Conectar();
             modelo.CliCod = Convert.ToInt32(cmd.ExecuteScalar());
             conexao.Desconectar();
@@ -46,11 +50,12 @@ namespace DAL
         {
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
-            cmd.CommandText = "UPDATE CLIENTE SET CLI_NOME = @NOME, CLI_CPFCNPJ = @CPFCNPJ, CLI_RGIE = @ RGIE, CLI_RSOCIAL = @RSOCIAL, CLI_TIPO = @TIPO," +
+            cmd.CommandText = "UPDATE CLIENTE SET CLI_NOME = @NOME, CLI_CPFCNPJ = @CPFCNPJ, CLI_RGIE = @RGIE, CLI_RSOCIAL = @RSOCIAL, CLI_TIPO = @TIPO," +
                 "CLI_CEP = @ CEP, CLI_ENDERECO = @ENDERECO, CLI_BAIRRO = @BAIRRO, CLI_FONE = @FONE, CLI_CEL = @CEL, CLI_EMAIL = @EMAIL,+" +
                 "CLI_ENDNUMERO = @ENDNUMERO, CLI_CIDADE = @CIDADE, CLI_ESTADO = @ESTADO WHERE CLI_COD = @CODIGO";
             cmd.Parameters.AddWithValue("@CODIGO", modelo.CliCod);
             cmd.Parameters.AddWithValue("@NOME", modelo.CliNome);
+            cmd.Parameters.AddWithValue("@TIPO", modelo.CliTipo);
             cmd.Parameters.AddWithValue("@CPFCNPJ", modelo.CliCpfCnpj);
             cmd.Parameters.AddWithValue("@RGIE", modelo.CliRgIe);
             cmd.Parameters.AddWithValue("@RSOCIAL", modelo.CliRSocial);
