@@ -114,6 +114,17 @@ namespace UI
                 modelo.CliFone = mskTelefone.Text;
                 modelo.CliRgIe = txtRG.Text;
                 modelo.CliRSocial = txtRSocial.Text;
+
+                if(rdbFisica.Checked == true)
+                {
+                    modelo.CliTipo = 0; //fisica
+                    modelo.CliRSocial = "";
+                }
+                else
+                {
+                    modelo.CliTipo = 1; //jurídica
+                }
+
                 DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
                 BLLCliente bll = new BLLCliente(cx);
 

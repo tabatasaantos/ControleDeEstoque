@@ -146,5 +146,12 @@ namespace UI
             f.ShowDialog();
             f.Dispose();
         }
+
+        private void clienteToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmConsultaCliente f = new frmConsultaCliente();
+            f.ShowDialog();
+            f.Dispose();
+        }
     }
 }

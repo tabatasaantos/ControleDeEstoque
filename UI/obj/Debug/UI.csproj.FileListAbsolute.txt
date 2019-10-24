@@ -51,3 +51,4 @@ C:\gitRepository\ControleDeEstoque\UI\obj\Debug\UI.frmBackupBancoDeDados.resourc
 C:\gitRepository\ControleDeEstoque\UI\obj\Debug\UI.frmCadastroTipoDePagamento.resources
 C:\gitRepository\ControleDeEstoque\UI\obj\Debug\UI.frmConsultaTipoDePagamento.resources
 C:\gitRepository\ControleDeEstoque\UI\obj\Debug\UI.frmCadastroCliente.resources
+C:\gitRepository\ControleDeEstoque\UI\obj\Debug\UI.frmConsultaCliente.resources
