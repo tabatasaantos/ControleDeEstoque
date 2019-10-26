@@ -1,4 +1,5 @@
 ﻿using DAL;
+using Ferramenta;
 using Modelo;
 using System;
 using System.Collections.Generic;
@@ -30,6 +31,23 @@ namespace BLL
                 throw new Exception("O CPF/CNPJ do cliente é obrigatório!");
             }
 
+            //validacão cpf 
+            if (modelo.CliTipo == "Física")
+            {
+                if(Validacao.IsCpf(modelo.CliCpfCnpj) == false)
+                {
+                    throw new Exception("CPF Inválido!");
+                }
+            }
+            //verificando cnpj
+            else
+            {                
+                if (Validacao.IsCpf(modelo.CliCpfCnpj) == false)
+                {
+                    throw new Exception("CPFCNPJ Inválido!");
+                }
+            }
+
             if (modelo.CliRgIe.Trim().Length == 0)
             {
                 throw new Exception("O RG/IE do cliente é obrigatório!");
@@ -39,10 +57,6 @@ namespace BLL
             {
                 throw new Exception("O Telefone do cliente é obrigatório!");
             }
-
-            // cli_tipo = 0 -> física
-            // cli_tipo = 1 -> juridica
-
 
             DALCliente DALobj = new DALCliente(conexao);
             DALobj.Incluir(modelo);

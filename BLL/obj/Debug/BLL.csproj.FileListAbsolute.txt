@@ -20,3 +20,5 @@ C:\gitRepository\ControleDeEstoque\BLL\bin\Debug\Modelo.dll
 C:\gitRepository\ControleDeEstoque\BLL\bin\Debug\DAL.pdb
 C:\gitRepository\ControleDeEstoque\BLL\bin\Debug\Modelo.pdb
 C:\gitRepository\ControleDeEstoque\BLL\obj\Debug\BLL.csproj.CopyComplete
+C:\gitRepository\ControleDeEstoque\BLL\bin\Debug\Ferramenta.dll
+C:\gitRepository\ControleDeEstoque\BLL\bin\Debug\Ferramenta.pdb

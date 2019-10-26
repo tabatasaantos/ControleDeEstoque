@@ -59,12 +59,14 @@
             this.lblCelular = new System.Windows.Forms.Label();
             this.mskTelefone = new System.Windows.Forms.MaskedTextBox();
             this.mskCelular = new System.Windows.Forms.MaskedTextBox();
+            this.lblValorInvalido = new System.Windows.Forms.Label();
             this.pnDados.SuspendLayout();
             this.pnButton.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnDados
             // 
+            this.pnDados.Controls.Add(this.lblValorInvalido);
             this.pnDados.Controls.Add(this.mskCelular);
             this.pnDados.Controls.Add(this.mskTelefone);
             this.pnDados.Controls.Add(this.lblCelular);
@@ -242,6 +244,7 @@
             this.txtCPF.Name = "txtCPF";
             this.txtCPF.Size = new System.Drawing.Size(135, 20);
             this.txtCPF.TabIndex = 11;
+            this.txtCPF.Leave += new System.EventHandler(this.txtCPF_Leave);
             // 
             // txtRG
             // 
@@ -416,6 +419,19 @@
             this.mskCelular.Size = new System.Drawing.Size(100, 20);
             this.mskCelular.TabIndex = 26;
             // 
+            // lblValorInvalido
+            // 
+            this.lblValorInvalido.AutoSize = true;
+            this.lblValorInvalido.BackColor = System.Drawing.Color.Transparent;
+            this.lblValorInvalido.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValorInvalido.ForeColor = System.Drawing.Color.Red;
+            this.lblValorInvalido.Location = new System.Drawing.Point(73, 128);
+            this.lblValorInvalido.Name = "lblValorInvalido";
+            this.lblValorInvalido.Size = new System.Drawing.Size(71, 13);
+            this.lblValorInvalido.TabIndex = 30;
+            this.lblValorInvalido.Text = "Valor Inválido";
+            this.lblValorInvalido.Visible = false;
+            // 
             // frmCadastroCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -464,5 +480,6 @@
         private System.Windows.Forms.MaskedTextBox mskTelefone;
         private System.Windows.Forms.Label lblCelular;
         private System.Windows.Forms.Label lblTelefone;
+        private System.Windows.Forms.Label lblValorInvalido;
     }
 }

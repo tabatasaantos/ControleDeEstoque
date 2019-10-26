@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using Ferramentas;
+using Ferramenta;
 
 namespace UI
 {
@@ -46,26 +47,47 @@ namespace UI
 
         private void btnLocalizar_Click(object sender, EventArgs e)
         {
-            /*frmConsultaCategoria f = new frmConsultaCategoria();
+            frmConsultaCliente f = new frmConsultaCliente();
             f.ShowDialog();
 
             if (f.codigo != 0)
             {
                 DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-                BLLCategoria bll = new BLLCategoria(cx);
-                ModeloCategoria modelo = bll.CarregaModeloCategoria(f.codigo);
-                txtCodigo.Text = modelo.CatCod.ToString();
-                txtNome.Text = modelo.CatNome;
+                BLLCliente bll = new BLLCliente(cx);
+                ModeloCliente modelo = bll.CarregaModeloCliente(f.codigo);
+                txtCodCliente.Text = modelo.CliCod.ToString();
+
+                if (modelo.CliTipo == "Física")
+                {
+                    rdbFisica.Checked = true;
+                }
+                else
+                {
+                    rdbJuridica.Checked = true;
+                }
+
+                txtNomeCli.Text = modelo.CliNome;
+                txtBairro.Text = modelo.CliBairro;
+                mskCelular.Text = modelo.CliCel;
+                txtCEP.Text = modelo.CliCep;
+                txtCidade.Text = modelo.CliCidade;
+                txtCPF.Text = modelo.CliCpfCnpj;
+                txtEmail.Text = modelo.CliEmail;
+                txtRua.Text = modelo.CliEndereco;
+                txtNumero.Text = modelo.CliEndNum;
+                txtEstado.Text = modelo.CliEstado;
+                mskTelefone.Text = modelo.CliFone;
+                txtRG.Text = modelo.CliRgIe;
+                txtRSocial.Text = modelo.CliRSocial;
                 AlteraBotoes(3);
             }
-
             else
             {
                 this.LimpaTela();
                 this.AlteraBotoes(1);
             }
 
-            f.Dispose();*/
+            f.Dispose();
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
@@ -117,12 +139,12 @@ namespace UI
 
                 if(rdbFisica.Checked == true)
                 {
-                    modelo.CliTipo = 0; //fisica
+                    modelo.CliTipo = "Física";
                     modelo.CliRSocial = "";
                 }
                 else
                 {
-                    modelo.CliTipo = 1; //jurídica
+                    modelo.CliTipo = "Jurídica"; 
                 }
 
                 DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
@@ -189,10 +211,30 @@ namespace UI
                 txtCidade.Text = BuscaEndereco.cidade;
                 txtRua.Text = BuscaEndereco.endereco;
             }
-
             else
             {
                 //limpar os campos do endereço
+            }
+        }
+
+        private void txtCPF_Leave(object sender, EventArgs e)
+        {
+            lblValorInvalido.Visible = false;
+            if(rdbFisica.Checked == true)
+            {
+                //cpf
+                if (Validacao.IsCpf(txtCPF.Text) == false)
+                {
+                    lblValorInvalido.Visible = true;
+                }              
+            }
+            else
+            {
+                //cnpj
+                if(Validacao.IsCnpj(txtCPF.Text) == false)
+                {
+                    lblValorInvalido.Visible = true;
+                }
             }
         }
     }

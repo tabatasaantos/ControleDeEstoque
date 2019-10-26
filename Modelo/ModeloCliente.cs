@@ -16,7 +16,7 @@ namespace Modelo
             this.CliCpfCnpj = "";
             this.CliRgIe = "";
             this.CliRSocial = "";
-            this.CliTipo = 0;
+            this.CliTipo = "Física";
             this.CliCep = "";
             this.CliEndereco = "";
             this.CliBairro = "";
@@ -28,7 +28,7 @@ namespace Modelo
             this.CliEstado = "";
         }
 
-        public ModeloCliente(int cod, string nome, string cpfcnpj, string rgie, string rsocial, int tipo, string cep, string end, string bairro, 
+        public ModeloCliente(int cod, string nome, string cpfcnpj, string rgie, string rsocial, string tipo, string cep, string end, string bairro, 
             string fone, string cel, string email, string endnum, string cidade, string estado)
         {
             this.CliCod = cod;
@@ -88,9 +88,9 @@ namespace Modelo
             set { this.cli_rsocial = value; }
         }
 
-        private int cli_tipo;
+        private string cli_tipo;
 
-        public int CliTipo
+        public string CliTipo
         {
             get { return this.cli_tipo; }
             set { this.cli_tipo = value; }

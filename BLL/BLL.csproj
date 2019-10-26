@@ -54,10 +54,17 @@
       <Project>{0341fe96-e4d1-44c6-a888-f8eed8e6da7d}</Project>
       <Name>DAL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Ferramenta\Ferramentas.csproj">
+      <Project>{04b909aa-9726-47e8-b1eb-7ba2b610e407}</Project>
+      <Name>Ferramentas</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Modelo\Modelo.csproj">
       <Project>{bf122848-8b77-4694-86af-91b3299718bb}</Project>
       <Name>Modelo</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

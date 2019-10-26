@@ -24,7 +24,7 @@ namespace DAL
             cmd.Connection = conexao.ObjetoConexao;
             cmd.CommandText = "INSERT CLIENTE(CLI_NOME, CLI_CPFCNPJ, CLI_RGIE, CLI_RSOCIAL, CLI_TIPO," +
                 "CLI_CEP, CLI_ENDERECO, CLI_BAIRRO, CLI_FONE, CLI_CEL, CLI_EMAIL, CLI_ENDNUMERO," +
-                "CLI_CIDADE, CLI_ESTADO) VALUES (@NOME, @CPFCNPJ, @RGIE, @RSOCIAL, @TIPO, @CEP, @ENDERECO, @BAIRRO, @FONE, @CEL, @EMAIL, @ENUMERO," +
+                "CLI_CIDADE, CLI_ESTADO) VALUES (@NOME, @CPFCNPJ, @RGIE, @RSOCIAL, @TIPO, @CEP, @ENDERECO, @BAIRRO, @FONE, @CEL, @EMAIL, @ENDNUMERO," +
                 "@CIDADE, @ESTADO); SELECT @@IDENTITY;";
             cmd.Parameters.AddWithValue("@NOME", modelo.CliNome);
             cmd.Parameters.AddWithValue("@CPFCNPJ", modelo.CliCpfCnpj);
@@ -39,7 +39,7 @@ namespace DAL
             cmd.Parameters.AddWithValue("@FONE", modelo.CliFone);
             cmd.Parameters.AddWithValue("@CEL", modelo.CliCel);
             cmd.Parameters.AddWithValue("@EMAIL", modelo.CliEmail);
-            cmd.Parameters.AddWithValue("@ENUMERO", modelo.CliEndNum);
+            cmd.Parameters.AddWithValue("@ENDNUMERO", modelo.CliEndNum);
 
             conexao.Conectar();
             modelo.CliCod = Convert.ToInt32(cmd.ExecuteScalar());
@@ -51,7 +51,7 @@ namespace DAL
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
             cmd.CommandText = "UPDATE CLIENTE SET CLI_NOME = @NOME, CLI_CPFCNPJ = @CPFCNPJ, CLI_RGIE = @RGIE, CLI_RSOCIAL = @RSOCIAL, CLI_TIPO = @TIPO," +
-                "CLI_CEP = @ CEP, CLI_ENDERECO = @ENDERECO, CLI_BAIRRO = @BAIRRO, CLI_FONE = @FONE, CLI_CEL = @CEL, CLI_EMAIL = @EMAIL,+" +
+                "CLI_CEP = @CEP, CLI_ENDERECO = @ENDERECO, CLI_BAIRRO = @BAIRRO, CLI_FONE = @FONE, CLI_CEL = @CEL, CLI_EMAIL = @EMAIL," +
                 "CLI_ENDNUMERO = @ENDNUMERO, CLI_CIDADE = @CIDADE, CLI_ESTADO = @ESTADO WHERE CLI_COD = @CODIGO";
             cmd.Parameters.AddWithValue("@CODIGO", modelo.CliCod);
             cmd.Parameters.AddWithValue("@NOME", modelo.CliNome);
@@ -65,7 +65,9 @@ namespace DAL
             cmd.Parameters.AddWithValue("@FONE", modelo.CliFone);
             cmd.Parameters.AddWithValue("@CEL", modelo.CliCel);
             cmd.Parameters.AddWithValue("@EMAIL", modelo.CliEmail);
-            cmd.Parameters.AddWithValue("@ENUMERO", modelo.CliEndNum);
+            cmd.Parameters.AddWithValue("@ENDNUMERO", modelo.CliEndNum);
+            cmd.Parameters.AddWithValue("@CIDADE", modelo.CliCidade);
+            cmd.Parameters.AddWithValue("@ESTADO", modelo.CliEstado);
             conexao.Conectar();
             cmd.ExecuteNonQuery();
             conexao.Desconectar();
@@ -120,14 +122,14 @@ namespace DAL
                 modelo.CliCpfCnpj = Convert.ToString(registro["CLI_CPFCNPJ"]); ;
                 modelo.CliRgIe = Convert.ToString(registro["CLI_RGIE"]); ;
                 modelo.CliRSocial = Convert.ToString(registro["CLI_RSOCIAL"]); ;
-                modelo.CliTipo = Convert.ToInt32(registro["CLI_TIPO"]); ;
+                modelo.CliTipo = Convert.ToString(registro["CLI_TIPO"]); ;
                 modelo.CliCep = Convert.ToString(registro["CLI_CEP"]);
                 modelo.CliEndereco = Convert.ToString(registro["CLI_ENDERECO"]);
                 modelo.CliBairro = Convert.ToString(registro["CLI_BAIRRO"]);
                 modelo.CliFone = Convert.ToString(registro["CLI_FONE"]);
                 modelo.CliCel = Convert.ToString(registro["CLI_CEL"]);
                 modelo.CliEmail = Convert.ToString(registro["CLI_EMAIL"]);
-                modelo.CliEndNum = Convert.ToString(registro["CLI_ENDNUM"]);
+                modelo.CliEndNum = Convert.ToString(registro["CLI_ENDNUMERO"]);
                 modelo.CliCidade = Convert.ToString(registro["CLI_CIDADE"]);
                 modelo.CliEstado = Convert.ToString(registro["CLI_ESTADO"]);
             }
@@ -153,14 +155,14 @@ namespace DAL
                 modelo.CliCpfCnpj = Convert.ToString(registro["CLI_CPFCNPJ"]); ;
                 modelo.CliRgIe = Convert.ToString(registro["CLI_RGIE"]); ;
                 modelo.CliRSocial = Convert.ToString(registro["CLI_RSOCIAL"]); ;
-                modelo.CliTipo = Convert.ToInt32(registro["CLI_TIPO"]); ;
+                modelo.CliTipo = Convert.ToString(registro["CLI_TIPO"]); ;
                 modelo.CliCep = Convert.ToString(registro["CLI_CEP"]);
                 modelo.CliEndereco = Convert.ToString(registro["CLI_ENDERECO"]);
                 modelo.CliBairro = Convert.ToString(registro["CLI_BAIRRO"]);
                 modelo.CliFone = Convert.ToString(registro["CLI_FONE"]);
                 modelo.CliCel = Convert.ToString(registro["CLI_CEL"]);
                 modelo.CliEmail = Convert.ToString(registro["CLI_EMAIL"]);
-                modelo.CliEndNum = Convert.ToString(registro["CLI_ENDNUM"]);
+                modelo.CliEndNum = Convert.ToString(registro["CLI_ENDNUMERO"]);
                 modelo.CliCidade = Convert.ToString(registro["CLI_CIDADE"]);
                 modelo.CliEstado = Convert.ToString(registro["CLI_ESTADO"]);
             }
