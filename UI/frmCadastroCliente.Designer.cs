@@ -244,6 +244,7 @@
             this.txtCPF.Name = "txtCPF";
             this.txtCPF.Size = new System.Drawing.Size(135, 20);
             this.txtCPF.TabIndex = 11;
+            this.txtCPF.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCPF_KeyPress);
             this.txtCPF.Leave += new System.EventHandler(this.txtCPF_Leave);
             // 
             // txtRG

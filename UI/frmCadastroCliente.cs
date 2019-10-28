@@ -15,6 +15,60 @@ namespace UI
 {
     public partial class frmCadastroCliente : UI.frmModeloDeFormularioDeCadastro
     {
+        public enum Campo
+        {
+            CPF = 1,
+            CNPJ = 2,
+        }
+
+        public void Formatar(Campo valor, TextBox txtTexto)
+        {
+            switch(valor)
+            {
+                case Campo.CPF:
+                    txtTexto.MaxLength = 14;
+                    if (txtTexto.Text.Length == 3)
+                    {
+                        txtTexto.Text = txtTexto.Text + ".";
+                        txtTexto.SelectionStart = txtTexto.Text.Length + 1;
+                    }
+                    else if (txtTexto.Text.Length == 7)
+                    {
+                        txtTexto.Text = txtTexto.Text + ".";
+                        txtTexto.SelectionStart = txtTexto.Text.Length + 1;
+                    }
+                    else if(txtTexto.Text.Length == 11)
+                    {
+                        txtTexto.Text = txtTexto.Text + "-";
+                        txtTexto.SelectionStart = txtTexto.Text.Length + 1;
+                    }
+                    break;
+            }
+
+            switch (valor)
+            {
+                case Campo.CNPJ:
+                    txtTexto.MaxLength = 18;
+                    if (txtTexto.Text.Length == 2 || txtTexto.Text.Length == 6)
+                    {
+                        txtTexto.Text = txtTexto.Text + ".";
+                        txtTexto.SelectionStart = txtTexto.Text.Length + 1;
+                    }
+                    else if (txtTexto.Text.Length == 10)
+                    {
+                        txtTexto.Text = txtTexto.Text + "/";
+                        txtTexto.SelectionStart = txtTexto.Text.Length + 1;
+                    }
+                    else if (txtTexto.Text.Length == 15)
+                    {
+                        txtTexto.Text = txtTexto.Text + "-";
+                        txtTexto.SelectionStart = txtTexto.Text.Length + 1;
+                    }
+                    break;
+            }
+
+        }
+
         public frmCadastroCliente()
         {
             InitializeComponent();
@@ -236,6 +290,20 @@ namespace UI
                     lblValorInvalido.Visible = true;
                 }
             }
+        }
+
+        private void txtCPF_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != (char)8)
+            {
+                Campo edit = Campo.CPF;
+                if (rdbFisica.Checked == false) edit = Campo.CNPJ;
+                {
+                    Formatar(edit, txtCPF);
+                }
+            }
+
+            
         }
     }
 }
