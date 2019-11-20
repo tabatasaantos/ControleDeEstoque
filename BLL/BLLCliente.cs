@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace BLL
@@ -44,7 +45,7 @@ namespace BLL
             {                
                 if (Validacao.IsCpf(modelo.CliCpfCnpj) == false)
                 {
-                    throw new Exception("CPFCNPJ Inválido!");
+                    throw new Exception("CNPJ Inválido!");
                 }
             }
 
@@ -58,20 +59,32 @@ namespace BLL
                 throw new Exception("O Telefone do cliente é obrigatório!");
             }
 
+            //Validação E-mail
+            string strRegex = "^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}" +
+                "\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+" +
+                "\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$";
+            Regex re = new Regex(strRegex);
+            if (!re.IsMatch(modelo.CliEmail))
+            {
+                throw new Exception("O e-mail está inválido");
+            }
+
+            //Validação CEP
+            //if (Validacao.ValidaCep(modelo.CliCep) == false)
+            //{
+            //    throw new Exception("CEP Inválido!");
+            //}
+
             DALCliente DALobj = new DALCliente(conexao);
             DALobj.Incluir(modelo);
         }
 
+       
         public void Alterar(ModeloCliente modelo)
         {
             if (modelo.CliNome.Trim().Length == 0)
             {
                 throw new Exception("O nome do cliente é obrigatório!");
-            }
-
-            if (modelo.CliCpfCnpj.Trim().Length == 0)
-            {
-                throw new Exception("O CPF/CNPJ do cliente é obrigatório!");
             }
 
             if (modelo.CliRgIe.Trim().Length == 0)
@@ -84,8 +97,18 @@ namespace BLL
                 throw new Exception("O Telefone do cliente é obrigatório!");
             }
 
+            //Validação E-mail
+            string strRegex = "^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}" +
+                "\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+" +
+                "\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$"; //verificar esse código e a validação do cpf
+            Regex re = new Regex(strRegex);
+            if (!re.IsMatch(modelo.CliEmail))
+            {
+                throw new Exception("O e-mail está inválido!");
+            }
+
             DALCliente DALobj = new DALCliente(conexao);
-            DALobj.Alterar(modelo);
+            DALobj.Incluir(modelo);
         }
 
         public void Excluir(int codigo)

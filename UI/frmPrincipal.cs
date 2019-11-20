@@ -122,7 +122,7 @@ namespace UI
                 conexao.Open();
                 conexao.Close();
             }
-            catch (SqlException ex)
+            catch (SqlException)
             {
                 MessageBox.Show("Erro ao conectar no Bando de Dados.\n Acesse as configuração do bando de dados" +
                     " e informe os parâmetros de conexão.");
@@ -150,6 +150,13 @@ namespace UI
         private void clienteToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             frmConsultaCliente f = new frmConsultaCliente();
+            f.ShowDialog();
+            f.Dispose();
+        }
+
+        private void fornecedorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCadastroFornecedor f = new frmCadastroFornecedor();
             f.ShowDialog();
             f.Dispose();
         }

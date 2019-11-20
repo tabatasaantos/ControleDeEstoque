@@ -76,7 +76,7 @@ namespace UI
                 MessageBox.Show("Conexão efetuada com sucesso!");
             }
 
-            catch (SqlException erro)
+            catch (SqlException)
             {
                 MessageBox.Show("Erro ao conectar no Bando de Dados.\nVerifique os dados informados!");
             }

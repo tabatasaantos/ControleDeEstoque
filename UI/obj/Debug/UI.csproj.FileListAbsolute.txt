@@ -52,3 +52,4 @@ C:\gitRepository\ControleDeEstoque\UI\obj\Debug\UI.frmCadastroTipoDePagamento.re
 C:\gitRepository\ControleDeEstoque\UI\obj\Debug\UI.frmConsultaTipoDePagamento.resources
 C:\gitRepository\ControleDeEstoque\UI\obj\Debug\UI.frmCadastroCliente.resources
 C:\gitRepository\ControleDeEstoque\UI\obj\Debug\UI.frmConsultaCliente.resources
+C:\gitRepository\ControleDeEstoque\UI\obj\Debug\UI.frmCadastroFornecedor.resources

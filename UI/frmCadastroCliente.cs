@@ -19,11 +19,12 @@ namespace UI
         {
             CPF = 1,
             CNPJ = 2,
+            CEP = 3
         }
 
         public void Formatar(Campo valor, TextBox txtTexto)
         {
-            switch(valor)
+            switch (valor)
             {
                 case Campo.CPF:
                     txtTexto.MaxLength = 14;
@@ -37,7 +38,7 @@ namespace UI
                         txtTexto.Text = txtTexto.Text + ".";
                         txtTexto.SelectionStart = txtTexto.Text.Length + 1;
                     }
-                    else if(txtTexto.Text.Length == 11)
+                    else if (txtTexto.Text.Length == 11)
                     {
                         txtTexto.Text = txtTexto.Text + "-";
                         txtTexto.SelectionStart = txtTexto.Text.Length + 1;
@@ -65,10 +66,18 @@ namespace UI
                         txtTexto.SelectionStart = txtTexto.Text.Length + 1;
                     }
                     break;
+
+                case Campo.CEP:
+                    txtTexto.MaxLength = 9;
+                    
+                    if (txtTexto.Text.Length == 5)
+                    {
+                       txtTexto.Text = txtTexto.Text + "-";
+                       txtTexto.SelectionStart = txtTexto.Text.Length + 1;
+                    }                   
+                    break;
             }
-
         }
-
         public frmCadastroCliente()
         {
             InitializeComponent();
@@ -91,6 +100,7 @@ namespace UI
             txtBairro.Clear();
             txtCidade.Clear();
             rdbFisica.Checked = true;
+            lblValorInvalido.Visible = false;
         }
 
         private void btnInserir_Click(object sender, EventArgs e)
@@ -258,16 +268,21 @@ namespace UI
 
         private void txtCEP_Leave(object sender, EventArgs e)
         {
-            if (BuscaEndereco.verificaCEP(txtCEP.Text) == true)
+
+            if(Validacao.ValidaCep(txtCEP.Text) == false)
             {
-                txtBairro.Text = BuscaEndereco.bairro;
-                txtEstado.Text = BuscaEndereco.estado;
-                txtCidade.Text = BuscaEndereco.cidade;
-                txtRua.Text = BuscaEndereco.endereco;
+                MessageBox.Show("CEP Inválido!");
             }
+
             else
             {
-                //limpar os campos do endereço
+                if (BuscaEndereco.verificaCEP(txtCEP.Text) == true)
+                {
+                    txtBairro.Text = BuscaEndereco.bairro;
+                    txtEstado.Text = BuscaEndereco.estado;
+                    txtCidade.Text = BuscaEndereco.cidade;
+                    txtRua.Text = BuscaEndereco.endereco;
+                }
             }
         }
 
@@ -298,12 +313,17 @@ namespace UI
             {
                 Campo edit = Campo.CPF;
                 if (rdbFisica.Checked == false) edit = Campo.CNPJ;
-                {
-                    Formatar(edit, txtCPF);
-                }
-            }
+                    Formatar(edit, txtCPF); 
+            }            
+        }
 
-            
+        private void txtCEP_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != (char)8)
+            {
+                Campo edit = Campo.CEP;
+                Formatar(edit, txtCEP);
+            }
         }
     }
 }

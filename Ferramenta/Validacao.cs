@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Ferramenta
@@ -10,7 +11,7 @@ namespace Ferramenta
     {
         public static bool IsCpf(string cpf)
         {
-            //Valkida CPF
+            //Valida CPF
 
             int[] multiplicador1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
             int[] multiplicador2 = new int[10] { 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 };
@@ -18,7 +19,7 @@ namespace Ferramenta
             string tempCpf, digito;
 
             cpf = cpf.Trim();
-            cpf = cpf.Replace(".", "").Replace(".", "").Replace(" ", "");
+            cpf = cpf.Replace(".", "").Replace(".", "").Replace(" ", "").Replace("-", "");
 
             if (cpf.Length != 11)
             {
@@ -33,7 +34,7 @@ namespace Ferramenta
                 {
                     soma += int.Parse(tempCpf[i].ToString()) * multiplicador1[i];
                 }
-                resto = (soma % 11);
+                resto = soma % 11;
 
                 if (resto < 2)
                 {
@@ -42,7 +43,7 @@ namespace Ferramenta
 
                 else
                 {
-                    resto = (11 - resto);
+                    resto = 11 - resto;
                 }
                    
                 digito = resto.ToString();
@@ -54,7 +55,7 @@ namespace Ferramenta
                     soma += int.Parse(tempCpf[i].ToString()) * multiplicador2[i];
                 }
 
-                resto = (soma % 11);
+                resto = soma % 11;
                 if (resto < 2)
                 {
                     resto = 0;
@@ -62,7 +63,7 @@ namespace Ferramenta
 
                 else
                 {
-                    resto = (11 - resto);
+                    resto = 11 - resto;
                 }                  
 
                 digito = digito + resto.ToString();
@@ -125,9 +126,24 @@ namespace Ferramenta
                 digito = digito + resto.ToString();
                 return cnpj.EndsWith(digito);
             }
-           
-
         }
 
+        //Validação E-mail
+        public static bool ValidaEmail(string email)
+        {
+            //Validação E-mail
+            string strRegex = "^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}" +
+                "\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+" +
+                "\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$"; //verificar esse código e a validação do cpf
+            Regex re = new Regex(strRegex);
+            return re.IsMatch(email);
+        }
+
+        //Validação CEP
+        public static bool ValidaCep(string cep)
+        {
+            var retorno = Regex.IsMatch(cep, ("[0-9]{5}-[0-9]{3}"));
+            return retorno;
+        }
     }
 }

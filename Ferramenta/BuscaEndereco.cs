@@ -31,7 +31,7 @@ namespace Ferramentas
                 flag = true;
             }
             // se não houver nenhum retorno, retorna as variavéis estáticas vazias
-            catch (Exception ex)
+            catch (Exception)
             {
                 endereco = "";
                 bairro = "";
