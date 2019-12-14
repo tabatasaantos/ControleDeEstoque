@@ -32,13 +32,10 @@ namespace BLL
                 throw new Exception("O CNPJ do fornecedor é obrigatório!");
             }
 
-            ////verificando cnpj
-            else
+            //verificando cnpj            
+            if (Validacao.IsCnpj(modelo.ForCnpj) == false)
             {
-                if (Validacao.IsCpf(modelo.ForCnpj) == false)
-                {
-                    throw new Exception("CNPJ Inválido!");
-                }
+                throw new Exception("CNPJ Inválido!");
             }
 
             if (modelo.ForIe.Trim().Length == 0)
@@ -77,6 +74,16 @@ namespace BLL
             if (modelo.ForNome.Trim().Length == 0)
             {
                 throw new Exception("O nome do fornecedor é obrigatório!");
+            }
+
+            if (modelo.ForCnpj.Trim().Length == 0)
+            {
+                throw new Exception("O CNPJ do fornecedor é obrigatório!");
+            }
+
+            if (Validacao.IsCnpj(modelo.ForCnpj) == false)
+            {
+                throw new Exception("CNPJ Inválido!");
             }
 
             if (modelo.ForIe.Trim().Length == 0)
@@ -121,7 +128,7 @@ namespace BLL
             return Dalobj.LocalizarPorNome(valor);
         }
 
-        public DataTable LocalizarPorCPFCNPJ(string valor)
+        public DataTable LocalizarPorCNPJ(string valor)
         {
             DALFornecedor Dalobj = new DALFornecedor(conexao);
             return Dalobj.LocalizarPorCNPJ(valor);

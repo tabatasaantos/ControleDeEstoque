@@ -284,6 +284,7 @@
             this.txtCEP.Name = "txtCEP";
             this.txtCEP.Size = new System.Drawing.Size(135, 20);
             this.txtCEP.TabIndex = 43;
+            this.txtCEP.Leave += new System.EventHandler(this.txtCEP_Leave);
             // 
             // lblCEP
             // 
@@ -320,7 +321,6 @@
             this.txtRSocial.Name = "txtRSocial";
             this.txtRSocial.Size = new System.Drawing.Size(582, 20);
             this.txtRSocial.TabIndex = 37;
-            this.txtRSocial.Visible = false;
             // 
             // lblRazaoFor
             // 
@@ -331,7 +331,6 @@
             this.lblRazaoFor.Size = new System.Drawing.Size(70, 13);
             this.lblRazaoFor.TabIndex = 36;
             this.lblRazaoFor.Text = "Razão Social";
-            this.lblRazaoFor.Visible = false;
             // 
             // txtNomeFor
             // 

@@ -112,6 +112,12 @@
     <Compile Include="frmConsultaCliente.Designer.cs">
       <DependentUpon>frmConsultaCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmConsultaFornecedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsultaFornecedor.Designer.cs">
+      <DependentUpon>frmConsultaFornecedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmConsultaProduto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +154,12 @@
     <Compile Include="frmPrincipal.Designer.cs">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSobre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSobre.Designer.cs">
+      <DependentUpon>frmSobre.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmBackupBancoDeDados.resx">
@@ -180,6 +192,9 @@
     <EmbeddedResource Include="frmConsultaCliente.resx">
       <DependentUpon>frmConsultaCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmConsultaFornecedor.resx">
+      <DependentUpon>frmConsultaFornecedor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmConsultaProduto.resx">
       <DependentUpon>frmConsultaProduto.cs</DependentUpon>
     </EmbeddedResource>
@@ -200,6 +215,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSobre.resx">
+      <DependentUpon>frmSobre.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -160,5 +160,26 @@ namespace UI
             f.ShowDialog();
             f.Dispose();
         }
+
+        private void fornecedorToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmConsultaFornecedor f = new frmConsultaFornecedor();
+            f.ShowDialog();
+            f.Dispose();
+        }
+
+        private void tipoDePagamentoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmConsultaTipoDePagamento f = new frmConsultaTipoDePagamento();
+            f.ShowDialog();
+            f.Dispose();
+        }
+
+        private void sobreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSobre f = new frmSobre();
+            f.ShowDialog();
+            f.Dispose();
+        }
     }
 }

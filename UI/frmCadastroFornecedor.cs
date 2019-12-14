@@ -9,6 +9,7 @@ using System.Text;
 using System.Windows.Forms;
 using Modelo;
 using Ferramenta;
+using Ferramentas;
 
 namespace UI
 {
@@ -27,28 +28,6 @@ namespace UI
 
         public void Formatar(Campo valor, TextBox txtTexto)
         {
-            switch (valor)
-            {
-                case Campo.CPF:
-                    txtTexto.MaxLength = 14;
-                    if (txtTexto.Text.Length == 3)
-                    {
-                        txtTexto.Text = txtTexto.Text + ".";
-                        txtTexto.SelectionStart = txtTexto.Text.Length + 1;
-                    }
-                    else if (txtTexto.Text.Length == 7)
-                    {
-                        txtTexto.Text = txtTexto.Text + ".";
-                        txtTexto.SelectionStart = txtTexto.Text.Length + 1;
-                    }
-                    else if (txtTexto.Text.Length == 11)
-                    {
-                        txtTexto.Text = txtTexto.Text + "-";
-                        txtTexto.SelectionStart = txtTexto.Text.Length + 1;
-                    }
-                    break;
-            }
-
             switch (valor)
             {
                 case Campo.CNPJ:
@@ -99,47 +78,38 @@ namespace UI
 
         private void btnLocalizar_Click(object sender, EventArgs e)
         {
-            //frmConsultaCliente f = new frmConsultaCliente();
-            //f.ShowDialog();
+            frmConsultaFornecedor f = new frmConsultaFornecedor();
+            f.ShowDialog();
 
-            //if (f.codigo != 0)
-            //{
-            //    DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-            //    BLLCliente bll = new BLLCliente(cx);
-            //    ModeloCliente modelo = bll.CarregaModeloCliente(f.codigo);
-            //    txtCodCliente.Text = modelo.CliCod.ToString();
+            if (f.codigo != 0)
+            {
+                DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+                BLLFornecedor bll = new BLLFornecedor(cx);
+                ModeloFornecedor modelo = bll.CarregaModeloFornecedor(f.codigo);
+                txtCodFornecedor.Text = modelo.ForCod.ToString();
 
-            //    if (modelo.CliTipo == "Física")
-            //    {
-            //        rdbFisica.Checked = true;
-            //    }
-            //    else
-            //    {
-            //        rdbJuridica.Checked = true;
-            //    }
+                txtNomeFor.Text = modelo.ForNome;
+                txtBairro.Text = modelo.ForBairro;
+                mskCelular.Text = modelo.ForCel;
+                txtCEP.Text = modelo.ForCep;
+                txtCidade.Text = modelo.ForCidade;
+                txtCNPJ.Text = modelo.ForCnpj;
+                txtEmail.Text = modelo.ForEmail;
+                txtRua.Text = modelo.ForEndereco;
+                txtNumero.Text = modelo.ForEndNum;
+                txtEstado.Text = modelo.ForEstado;
+                mskTelefone.Text = modelo.ForFone;
+                txtIE.Text = modelo.ForIe;
+                txtRSocial.Text = modelo.ForRSocial;
+                AlteraBotoes(3);
+            }
+            else
+            {
+                this.LimpaTela();
+                this.AlteraBotoes(1);
+            }
 
-            //    txtNomeCli.Text = modelo.CliNome;
-            //    txtBairro.Text = modelo.CliBairro;
-            //    mskCelular.Text = modelo.CliCel;
-            //    txtCEP.Text = modelo.CliCep;
-            //    txtCidade.Text = modelo.CliCidade;
-            //    txtCPF.Text = modelo.CliCpfCnpj;
-            //    txtEmail.Text = modelo.CliEmail;
-            //    txtRua.Text = modelo.CliEndereco;
-            //    txtNumero.Text = modelo.CliEndNum;
-            //    txtEstado.Text = modelo.CliEstado;
-            //    mskTelefone.Text = modelo.CliFone;
-            //    txtRG.Text = modelo.CliRgIe;
-            //    txtRSocial.Text = modelo.CliRSocial;
-            //    AlteraBotoes(3);
-            //}
-            //else
-            //{
-            //    this.LimpaTela();
-            //    this.AlteraBotoes(1);
-            //}
-
-            //f.Dispose();
+            f.Dispose();
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
@@ -239,6 +209,25 @@ namespace UI
             {
                 Campo edit = Campo.CNPJ;              
                 Formatar(edit, txtCNPJ);
+            }
+        }
+
+        private void txtCEP_Leave(object sender, EventArgs e)
+        {
+            if (Validacao.ValidaCep(txtCEP.Text) == false)
+            {
+                MessageBox.Show("CEP Inválido!");
+            }
+
+            else
+            {
+                if (BuscaEndereco.verificaCEP(txtCEP.Text) == true)
+                {
+                    txtBairro.Text = BuscaEndereco.bairro;
+                    txtEstado.Text = BuscaEndereco.estado;
+                    txtCidade.Text = BuscaEndereco.cidade;
+                    txtRua.Text = BuscaEndereco.endereco;
+                }
             }
         }
     }

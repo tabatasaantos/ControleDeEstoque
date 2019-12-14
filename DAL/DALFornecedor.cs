@@ -54,8 +54,8 @@ namespace DAL
                 "FOR_ENDNUMERO = @ENDNUMERO, FOR_CIDADE = @CIDADE, FOR_ESTADO = @ESTADO WHERE FOR_COD = @CODIGO";
             cmd.Parameters.AddWithValue("@CODIGO", modelo.ForCod);
             cmd.Parameters.AddWithValue("@NOME", modelo.ForNome);
-            cmd.Parameters.AddWithValue("@CPFCNPJ", modelo.ForCnpj);
-            cmd.Parameters.AddWithValue("@RGIE", modelo.ForIe);
+            cmd.Parameters.AddWithValue("@CNPJ", modelo.ForCnpj);
+            cmd.Parameters.AddWithValue("@IE", modelo.ForIe);
             cmd.Parameters.AddWithValue("@RSOCIAL", modelo.ForRSocial);
             cmd.Parameters.AddWithValue("@CEP", modelo.ForCep);
             cmd.Parameters.AddWithValue("@ENDERECO", modelo.ForEndereco);
@@ -98,7 +98,7 @@ namespace DAL
         public DataTable LocalizarPorCNPJ(string valor)
         {
             DataTable tabela = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM FORNECEDOR WHERE FOR_CPFCNPJ LIKE '%" + valor + "%'", conexao.StringConexao);
+            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM FORNECEDOR WHERE FOR_CNPJ LIKE '%" + valor + "%'", conexao.StringConexao);
             da.Fill(tabela);
             return tabela;
         }
@@ -117,8 +117,8 @@ namespace DAL
                 registro.Read();
                 modelo.ForCod = Convert.ToInt32(registro["FOR_COD"]);
                 modelo.ForNome = Convert.ToString(registro["FOR_NOME"]);
-                modelo.ForCnpj = Convert.ToString(registro["FOR_CPFCNPJ"]); ;
-                modelo.ForIe = Convert.ToString(registro["FOR_RGIE"]); ;
+                modelo.ForCnpj = Convert.ToString(registro["FOR_CNPJ"]); ;
+                modelo.ForIe = Convert.ToString(registro["FOR_IE"]); ;
                 modelo.ForRSocial = Convert.ToString(registro["FOR_RSOCIAL"]); ;
                 modelo.ForCep = Convert.ToString(registro["FOR_CEP"]);
                 modelo.ForEndereco = Convert.ToString(registro["FOR_ENDERECO"]);
