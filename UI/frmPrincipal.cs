@@ -181,5 +181,12 @@ namespace UI
             f.ShowDialog();
             f.Dispose();
         }
+
+        private void compraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmMovimentacaoCompra f = new frmMovimentacaoCompra();
+            f.ShowDialog();
+            f.Dispose();
+        }
     }
 }

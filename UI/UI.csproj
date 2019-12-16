@@ -148,6 +148,12 @@
     <Compile Include="frmModeloDeFormularioDeCadastro.Designer.cs">
       <DependentUpon>frmModeloDeFormularioDeCadastro.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMovimentacaoCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMovimentacaoCompra.Designer.cs">
+      <DependentUpon>frmMovimentacaoCompra.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -212,6 +218,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCadastroCategoria.resx">
       <DependentUpon>frmCadastroCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMovimentacaoCompra.resx">
+      <DependentUpon>frmMovimentacaoCompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>

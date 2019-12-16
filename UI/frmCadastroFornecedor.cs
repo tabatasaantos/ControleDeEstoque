@@ -78,38 +78,38 @@ namespace UI
 
         private void btnLocalizar_Click(object sender, EventArgs e)
         {
-            frmConsultaFornecedor f = new frmConsultaFornecedor();
-            f.ShowDialog();
+            //frmConsultaFornecedor f = new frmConsultaFornecedor();
+            //f.ShowDialog();
 
-            if (f.codigo != 0)
-            {
-                DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-                BLLFornecedor bll = new BLLFornecedor(cx);
-                ModeloFornecedor modelo = bll.CarregaModeloFornecedor(f.codigo);
-                txtCodFornecedor.Text = modelo.ForCod.ToString();
+            //if (f.codigo != 0)
+            //{
+            //    DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+            //    BLLFornecedor bll = new BLLFornecedor(cx);
+            //    ModeloFornecedor modelo = bll.CarregaModeloFornecedor(f.codigo);
+            //    txtCodFornecedor.Text = modelo.ForCod.ToString();
 
-                txtNomeFor.Text = modelo.ForNome;
-                txtBairro.Text = modelo.ForBairro;
-                mskCelular.Text = modelo.ForCel;
-                txtCEP.Text = modelo.ForCep;
-                txtCidade.Text = modelo.ForCidade;
-                txtCNPJ.Text = modelo.ForCnpj;
-                txtEmail.Text = modelo.ForEmail;
-                txtRua.Text = modelo.ForEndereco;
-                txtNumero.Text = modelo.ForEndNum;
-                txtEstado.Text = modelo.ForEstado;
-                mskTelefone.Text = modelo.ForFone;
-                txtIE.Text = modelo.ForIe;
-                txtRSocial.Text = modelo.ForRSocial;
-                AlteraBotoes(3);
-            }
-            else
-            {
-                this.LimpaTela();
-                this.AlteraBotoes(1);
-            }
+            //    txtNomeFor.Text = modelo.ForNome;
+            //    txtBairro.Text = modelo.ForBairro;
+            //    mskCelular.Text = modelo.ForCel;
+            //    txtCEP.Text = modelo.ForCep;
+            //    txtCidade.Text = modelo.ForCidade;
+            //    txtCNPJ.Text = modelo.ForCnpj;
+            //    txtEmail.Text = modelo.ForEmail;
+            //    txtRua.Text = modelo.ForEndereco;
+            //    txtNumero.Text = modelo.ForEndNum;
+            //    txtEstado.Text = modelo.ForEstado;
+            //    mskTelefone.Text = modelo.ForFone;
+            //    txtIE.Text = modelo.ForIe;
+            //    txtRSocial.Text = modelo.ForRSocial;
+            //    AlteraBotoes(3);
+            //}
+            //else
+            //{
+            //    this.LimpaTela();
+            //    this.AlteraBotoes(1);
+            //}
 
-            f.Dispose();
+            //f.Dispose();
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
@@ -214,7 +214,7 @@ namespace UI
 
         private void txtCEP_Leave(object sender, EventArgs e)
         {
-            if (Validacao.ValidaCep(txtCEP.Text) == false)
+            if (Validacao.ValidaCep(txtCEP.Text) == true)
             {
                 MessageBox.Show("CEP Inválido!");
             }

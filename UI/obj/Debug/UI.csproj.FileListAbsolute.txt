@@ -55,3 +55,4 @@ C:\gitRepository\ControleDeEstoque\UI\obj\Debug\UI.frmConsultaCliente.resources
 C:\gitRepository\ControleDeEstoque\UI\obj\Debug\UI.frmCadastroFornecedor.resources
 C:\gitRepository\ControleDeEstoque\UI\obj\Debug\UI.frmConsultaFornecedor.resources
 C:\gitRepository\ControleDeEstoque\UI\obj\Debug\UI.frmSobre.resources
+C:\gitRepository\ControleDeEstoque\UI\obj\Debug\UI.frmMovimentacaoCompra.resources

@@ -257,6 +257,8 @@
             // 
             // cmbCategoria
             // 
+            this.cmbCategoria.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbCategoria.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbCategoria.FormattingEnabled = true;
             this.cmbCategoria.Location = new System.Drawing.Point(21, 255);
             this.cmbCategoria.Name = "cmbCategoria";
@@ -266,6 +268,8 @@
             // 
             // cmbSubCategoria
             // 
+            this.cmbSubCategoria.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbSubCategoria.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbSubCategoria.FormattingEnabled = true;
             this.cmbSubCategoria.Location = new System.Drawing.Point(220, 255);
             this.cmbSubCategoria.Name = "cmbSubCategoria";

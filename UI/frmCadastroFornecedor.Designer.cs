@@ -362,6 +362,7 @@
             // 
             // txtCodFornecedor
             // 
+            this.txtCodFornecedor.Enabled = false;
             this.txtCodFornecedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodFornecedor.Location = new System.Drawing.Point(12, 17);
             this.txtCodFornecedor.Name = "txtCodFornecedor";
@@ -394,6 +395,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(640, 412);
             this.Name = "frmCadastroFornecedor";
+            this.Text = "Cadastro de Fornecedor";
             this.pnDados.ResumeLayout(false);
             this.pnDados.PerformLayout();
             this.pnButton.ResumeLayout(false);

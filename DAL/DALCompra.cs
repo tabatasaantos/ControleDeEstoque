@@ -106,10 +106,8 @@ namespace DAL
             cmd.Parameters["@DTINICIAL"].Value = dtinicial;
             cmd.Parameters.AddWithValue("@DTFINAL", System.Data.SqlDbType.DateTime);
             cmd.Parameters["@DTFINAL"].Value = dtfinal;
-            //conexao.Conectar();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(tabela);
-            //conexao.Desconectar();
             return tabela;
         }
 
